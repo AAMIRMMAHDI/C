@@ -17,16 +17,19 @@
         * {
             font-family: 'Vazir', Arial, sans-serif;
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background: linear-gradient(180deg, #0A0E2B, #1A2659);
+            background: #000;
             color: #E0E7FF;
             overflow-x: hidden;
             position: relative;
+            perspective: 1000px; /* برای ایجاد حس عمق سه‌بعدی */
         }
 
-        /* AR/VR Background Effects */
+        /* افکت پس‌زمینه AR/VR */
         body::before {
             content: '';
             position: fixed;
@@ -34,79 +37,97 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent);
-            z-index: -1;
-            animation: pulseGlow 10s infinite ease-in-out;
+            background: url('https://i.imgur.com/7yN2zX4.jpg') no-repeat center/cover;
+            opacity: 0.3;
+            z-index: -2;
+            animation: spaceDrift 20s linear infinite;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.7; }
+        @keyframes spaceDrift {
+            0% { transform: translateZ(0) scale(1); }
+            50% { transform: translateZ(-100px) scale(1.1); }
+            100% { transform: translateZ(0) scale(1); }
         }
 
-        /* Glassmorphism Header */
+        /* هدر شناور هولوگرافیک */
         header {
-            background: rgba(10, 14, 43, 0.7);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-            position: sticky;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(88, 255, 255, 0.4);
+            position: fixed;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            z-index: 2000;
+            transform: translateZ(50px);
+            transition: transform 0.5s;
+        }
+
+        header.scrolled {
+            transform: translateZ(0);
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .navbar-brand {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: #3B82F6 !important;
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
-            transition: transform 0.3s;
+            font-size: 2.5rem;
+            color: #58FFFF !important;
+            text-shadow: 0 0 15px #58FFFF, 0 0 30px #3B82F6;
+            transform: rotateX(10deg);
+            transition: transform 0.3s, text-shadow 0.3s;
         }
 
         .navbar-brand:hover {
-            transform: scale(1.1);
+            transform: rotateX(0) scale(1.1);
+            text-shadow: 0 0 25px #58FFFF, 0 0 50px #3B82F6;
         }
 
         .navbar-nav .nav-link {
             color: #E0E7FF !important;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             position: relative;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            transform: translateZ(20px);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #58FFFF !important;
+            transform: translateZ(40px);
+            text-shadow: 0 0 10px #58FFFF;
         }
 
         .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background: #22D3EE;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #58FFFF, transparent);
+            transform: translateX(-50%);
             transition: width 0.3s;
         }
 
         .navbar-nav .nav-link:hover::after {
-            width: 100%;
+            width: 80%;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: #22D3EE !important;
-            text-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
-        }
-
-        /* Hero Section with AR/VR Effects */
+        /* هیرو با افکت VR */
         .hero {
             height: 100vh;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
 
         .carousel-item {
             height: 100vh;
             background: no-repeat center/cover;
-            position: relative;
-            transform: scale(1.05);
-            transition: transform 10s ease;
+            transform: translateZ(-100px) scale(1.2);
+            transition: transform 0.8s ease;
+        }
+
+        .carousel-item.active {
+            transform: translateZ(0) scale(1);
         }
 
         .carousel-item::before {
@@ -116,283 +137,295 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(10, 14, 43, 0.6), rgba(59, 130, 246, 0.3));
-            backdrop-filter: blur(5px);
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(88, 255, 255, 0.2));
             z-index: 1;
         }
 
         .carousel-caption {
-            bottom: 25%;
-            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            bottom: 30%;
+            z-index: 2;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            z-index: 2;
-            animation: holographicFade 1.5s ease-in-out;
+            gap: 2rem;
+            transform: translateZ(50px);
+            animation: vrPop 1.5s ease-out;
         }
 
         .carousel-caption h1 {
-            font-size: 4rem;
-            color: #22D3EE;
-            text-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
-            animation: neonFlicker 3s infinite;
+            font-size: 5rem;
+            color: #58FFFF;
+            text-shadow: 0 0 20px #58FFFF, 0 0 40px #3B82F6;
+            transform: rotateX(15deg);
+            animation: holographicPulse 2s infinite;
         }
 
         .carousel-caption p {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #E0E7FF;
+            transform: rotateX(15deg);
         }
 
         .carousel-caption i {
-            font-size: 4rem;
-            color: #3B82F6;
-            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.7));
+            font-size: 5rem;
+            color: #58FFFF;
+            filter: drop-shadow(0 0 20px #58FFFF);
+            transform: translateZ(100px);
+            animation: floatIcon 3s infinite ease-in-out;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #3B82F6, #22D3EE);
+            background: linear-gradient(45deg, #3B82F6, #58FFFF);
             border: none;
-            padding: 1rem 2.5rem;
-            font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
             border-radius: 50px;
-            box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+            box-shadow: 0 0 20px rgba(88, 255, 255, 0.6);
+            transform: translateZ(30px);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .btn-primary:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(34, 211, 238, 0.8);
+            transform: translateZ(50px) scale(1.1);
+            box-shadow: 0 0 30px rgba(88, 255, 255, 0.9);
         }
 
-        /* AR/VR Animations */
-        @keyframes holographicFade {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        /* انیمیشن‌های AR/VR */
+        @keyframes vrPop {
+            0% { transform: translateZ(-50px) scale(0.8); opacity: 0; }
+            100% { transform: translateZ(50px) scale(1); opacity: 1; }
         }
 
-        @keyframes neonFlicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        @keyframes holographicPulse {
+            0%, 100% { text-shadow: 0 0 20px #58FFFF, 0 0 40px #3B82F6; }
+            50% { text-shadow: 0 0 30px #58FFFF, 0 0 60px #3B82F6; }
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateZ(100px) translateY(0); }
+            50% { transform: translateZ(100px) translateY(-15px); }
         }
 
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(50px) scale(0.95);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateZ(-50px) translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateZ(0) translateY(0);
         }
 
-        /* Services Section */
+        /* بخش خدمات */
         .services {
-            padding: 6rem 0;
+            padding: 8rem 0;
             position: relative;
         }
 
         .service-card {
-            background: rgba(10, 14, 43, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3rem;
             text-align: center;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 2px solid rgba(88, 255, 255, 0.3);
+            transform: translateZ(20px);
+            transition: transform 0.5s, box-shadow 0.5s;
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.5);
+            transform: translateZ(50px) scale(1.05);
+            box-shadow: 0 0 40px rgba(88, 255, 255, 0.7);
         }
 
         .service-card i {
-            font-size: 3.5rem;
-            color: #22D3EE;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.7));
-            animation: float 3s infinite ease-in-out;
+            font-size: 4rem;
+            color: #58FFFF;
+            margin-bottom: 2rem;
+            transform: translateZ(30px);
+            animation: spin3D 5s infinite linear;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes spin3D {
+            0% { transform: translateZ(30px) rotateY(0deg); }
+            100% { transform: translateZ(30px) rotateY(360deg); }
         }
 
-        /* Portfolio Section */
+        /* نمونه‌کارها */
         .portfolio {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #0A0E2B, #1A2659);
+            padding: 8rem 0;
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .portfolio-card {
-            background: rgba(10, 14, 43, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem;
             text-align: center;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 2px solid rgba(88, 255, 255, 0.3);
+            transform: translateZ(20px);
+            transition: transform 0.5s, box-shadow 0.5s;
         }
 
         .portfolio-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.5);
+            transform: translateZ(50px) scale(1.05);
+            box-shadow: 0 0 40px rgba(88, 255, 255, 0.7);
         }
 
         .portfolio-card i {
-            font-size: 3.5rem;
-            color: #22D3EE;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            color: #58FFFF;
+            margin-bottom: 2rem;
         }
 
         .portfolio-card a {
             color: #E0E7FF;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         .portfolio-card a:hover {
-            color: #22D3EE;
-            text-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
+            color: #58FFFF;
+            text-shadow: 0 0 10px #58FFFF;
         }
 
-        /* Why Us Section */
+        /* چرا ما */
         .why-us {
-            padding: 6rem 0;
+            padding: 8rem 0;
         }
 
         .why-us-card {
-            background: rgba(10, 14, 43, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem;
             text-align: center;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: transform 0.4s ease;
+            border: 2px solid rgba(88, 255, 255, 0.3);
+            transform: translateZ(20px);
+            transition: transform 0.5s;
         }
 
         .why-us-card:hover {
-            transform: translateY(-10px);
+            transform: translateZ(40px);
         }
 
         .why-us-card i {
-            font-size: 3rem;
-            color: #22D3EE;
-            margin-bottom: 1rem;
-        }
-
-        /* News Section */
-        .news {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #0A0E2B, #1A2659);
-        }
-
-        .news-card {
-            background: rgba(10, 14, 43, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: transform 0.4s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .news-card i {
-            font-size: 3rem;
-            color: #22D3EE;
-            margin-bottom: 1rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #0A0E2B, #1A2659);
-        }
-
-        .about i {
             font-size: 3.5rem;
-            color: #22D3EE;
+            color: #58FFFF;
             margin-bottom: 1.5rem;
         }
 
-        /* Contact Section */
+        /* اخبار */
+        .news {
+            padding: 8rem 0;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .news-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid rgba(88, 255, 255, 0.3);
+            transform: translateZ(20px);
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover {
+            transform: translateZ(40px);
+        }
+
+        .news-card i {
+            font-size: 3.5rem;
+            color: #58FFFF;
+            margin-bottom: 1.5rem;
+        }
+
+        /* درباره ما */
+        .about {
+            padding: 8rem 0;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .about i {
+            font-size: 4rem;
+            color: #58FFFF;
+            margin-bottom: 2rem;
+            transform: translateZ(30px);
+        }
+
+        /* تماس با ما */
         .contact {
-            padding: 6rem 0;
+            padding: 8rem 0;
         }
 
         .contact input, .contact textarea {
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(34, 211, 238, 0.3);
-            border-radius: 10px;
+            background: rgba(88, 255, 255, 0.1);
+            border: 2px solid rgba(88, 255, 255, 0.3);
+            border-radius: 15px;
             color: #E0E7FF;
-            padding: 1rem;
-            font-size: 1.1rem;
-            transition: background 0.3s, border 0.3s;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            transform: translateZ(20px);
+            transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
         }
 
         .contact input:focus, .contact textarea:focus {
-            background: rgba(59, 130, 246, 0.4);
-            border: 1px solid #22D3EE;
-            outline: none;
-            box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+            border: 2px solid #58FFFF;
+            box-shadow: 0 0 20px rgba(88, 255, 255, 0.6);
+            transform: translateZ(30px);
         }
 
         .contact textarea {
             width: 100%;
         }
 
-        /* Footer */
+        /* فوتر */
         footer {
-            background: #0A0E2B;
+            background: #000;
             color: #E0E7FF;
-            padding: 3rem 0;
-            border-top: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 4rem 0;
+            border-top: 2px solid rgba(88, 255, 255, 0.3);
         }
 
         footer i {
-            font-size: 1.8rem;
-            margin: 0 0.7rem;
-            color: #22D3EE;
-            transition: color 0.3s, transform 0.3s;
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #58FFFF;
+            transform: translateZ(20px);
+            transition: transform 0.3s, color 0.3s;
         }
 
         footer i:hover {
             color: #3B82F6;
-            transform: scale(1.2);
+            transform: translateZ(40px) scale(1.2);
         }
 
-        /* Responsive Design */
+        /* ریسپانسیو */
         @media (max-width: 768px) {
             .carousel-caption h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             .carousel-caption p {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             .carousel-caption i {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             .service-card, .portfolio-card, .why-us-card, .news-card {
-                margin-bottom: 2rem;
+                margin-bottom: 2.5rem;
+                transform: translateZ(10px);
+            }
+            .service-card:hover, .portfolio-card:hover, .why-us-card:hover, .news-card:hover {
+                transform: translateZ(20px) scale(1.05);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Your HTML content remains unchanged -->
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -617,7 +650,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Scroll Animation
+        // انیمیشن اسکرول
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -627,6 +660,16 @@
         }, { threshold: 0.2 });
         document.querySelectorAll('.animate-on-scroll').forEach(element => {
             observer.observe(element);
+        });
+
+        // افکت هدر هنگام اسکرول
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
     <script>
