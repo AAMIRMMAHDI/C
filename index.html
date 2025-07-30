@@ -8,440 +8,401 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Vazir';
             src: url('https://cdn.fontcdn.ir/Fonts/Vazir/Vazir.woff') format('woff');
         }
-        
+
         * {
             font-family: 'Vazir', Arial, sans-serif;
-        }
-
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3f37c9;
-            --accent-color: #4895ef;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gradient: linear-gradient(135deg, #4361ee, #3f37c9);
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #f8f9fa;
-            color: var(--dark-color);
+            background: linear-gradient(180deg, #0A0E2B, #1A2659);
+            color: #E0E7FF;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            position: relative;
         }
 
-        /* هدر مدرن با سایه و انیمیشن */
+        /* AR/VR Background Effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent);
+            z-index: -1;
+            animation: pulseGlow 10s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Glassmorphism Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(10, 14, 43, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: bold;
-            color: var(--primary-color) !important;
-            transition: all 0.3s ease;
+            color: #3B82F6 !important;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+            transition: transform 0.3s;
         }
 
         .navbar-brand:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
-        .navbar-brand i {
-            transition: all 0.5s ease;
-        }
-
-        .navbar-brand:hover i {
-            transform: rotate(15deg);
-        }
-
-        .nav-link {
+        .navbar-nav .nav-link {
+            color: #E0E7FF !important;
+            font-size: 1.2rem;
             position: relative;
-            color: var(--dark-color) !important;
-            font-weight: 500;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .nav-link::after {
+        .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            right: 0;
+            bottom: -5px;
+            left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
+            background: #22D3EE;
+            transition: width 0.3s;
         }
 
-        .nav-link:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .nav-link:hover::after {
+        .navbar-nav .nav-link:hover::after {
             width: 100%;
-            left: 0;
         }
 
-        /* هیرو مدرن با انیمیشن */
+        .navbar-nav .nav-link:hover {
+            color: #22D3EE !important;
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
+        }
+
+        /* Hero Section with AR/VR Effects */
         .hero {
             height: 100vh;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            background: var(--gradient);
         }
 
-        .hero-content {
-            z-index: 2;
+        .carousel-item {
+            height: 100vh;
+            background: no-repeat center/cover;
             position: relative;
+            transform: scale(1.05);
+            transition: transform 10s ease;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero-image {
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* دکمه‌های مدرن */
-        .btn-primary {
-            background: var(--primary-color);
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
-        }
-
-        .btn-primary::before {
+        .carousel-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--secondary-color);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::before {
             width: 100%;
-        }
-
-        /* کارت‌های مدرن با انیمیشن */
-        .service-card, .portfolio-card, .why-us-card, .news-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(rgba(10, 14, 43, 0.6), rgba(59, 130, 246, 0.3));
+            backdrop-filter: blur(5px);
+            z-index: 1;
         }
 
-        .service-card:hover, .portfolio-card:hover, .why-us-card:hover, .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        .carousel-caption {
+            bottom: 25%;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 2;
+            animation: holographicFade 1.5s ease-in-out;
         }
 
-        .service-card i, .portfolio-card i, .why-us-card i, .news-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            transition: all 0.3s ease;
+        .carousel-caption h1 {
+            font-size: 4rem;
+            color: #22D3EE;
+            text-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+            animation: neonFlicker 3s infinite;
         }
 
-        .service-card:hover i, .portfolio-card:hover i, .why-us-card:hover i, .news-card:hover i {
-            transform: scale(1.2);
-            color: var(--accent-color);
+        .carousel-caption p {
+            font-size: 1.8rem;
+            color: #E0E7FF;
         }
 
-        /* افکت هاله نور برای آیکون‌ها */
-        .icon-halo {
-            position: relative;
+        .carousel-caption i {
+            font-size: 4rem;
+            color: #3B82F6;
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.7));
         }
 
-        .icon-halo::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(72, 149, 239, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-            transition: all 0.5s ease;
+        .btn-primary {
+            background: linear-gradient(45deg, #3B82F6, #22D3EE);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .service-card:hover .icon-halo::after, 
-        .portfolio-card:hover .icon-halo::after,
-        .why-us-card:hover .icon-halo::after,
-        .news-card:hover .icon-halo::after {
-            width: 80px;
-            height: 80px;
-            background: rgba(72, 149, 239, 0.2);
+        .btn-primary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.8);
         }
 
-        /* انیمیشن‌های سفارشی */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        /* AR/VR Animations */
+        @keyframes holographicFade {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
+        @keyframes neonFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
-        /* بخش‌های مختلف */
-        section {
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Services Section */
+        .services {
             padding: 6rem 0;
             position: relative;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
+        .service-card {
+            background: rgba(10, 14, 43, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            width: 50px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.5);
         }
 
-        /* افکت موج برای بخش‌ها */
-        .wave-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
+        .service-card i {
+            font-size: 3.5rem;
+            color: #22D3EE;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.7));
+            animation: float 3s infinite ease-in-out;
         }
 
-        .wave-divider svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 50px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .wave-divider .shape-fill {
-            fill: #FFFFFF;
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0A0E2B, #1A2659);
         }
 
-        /* فرم تماس مدرن */
-        .contact-form input, .contact-form textarea {
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+        .portfolio-card {
+            background: rgba(10, 14, 43, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.5);
+        }
+
+        .portfolio-card i {
+            font-size: 3.5rem;
+            color: #22D3EE;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-card a {
+            color: #E0E7FF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .portfolio-card a:hover {
+            color: #22D3EE;
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
+        }
+
+        /* Why Us Section */
+        .why-us {
+            padding: 6rem 0;
+        }
+
+        .why-us-card {
+            background: rgba(10, 14, 43, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .why-us-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .why-us-card i {
+            font-size: 3rem;
+            color: #22D3EE;
+            margin-bottom: 1rem;
+        }
+
+        /* News Section */
+        .news {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0A0E2B, #1A2659);
+        }
+
+        .news-card {
+            background: rgba(10, 14, 43, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-card i {
+            font-size: 3rem;
+            color: #22D3EE;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0A0E2B, #1A2659);
+        }
+
+        .about i {
+            font-size: 3.5rem;
+            color: #22D3EE;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+        }
+
+        .contact input, .contact textarea {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(34, 211, 238, 0.3);
             border-radius: 10px;
+            color: #E0E7FF;
             padding: 1rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            transition: background 0.3s, border 0.3s;
         }
 
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        .contact input:focus, .contact textarea:focus {
+            background: rgba(59, 130, 246, 0.4);
+            border: 1px solid #22D3EE;
             outline: none;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
         }
 
-        /* فوتر مدرن */
+        .contact textarea {
+            width: 100%;
+        }
+
+        /* Footer */
         footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
+            background: #0A0E2B;
+            color: #E0E7FF;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(59, 130, 246, 0.3);
         }
 
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
+        footer i {
+            font-size: 1.8rem;
+            margin: 0 0.7rem;
+            color: #22D3EE;
+            transition: color 0.3s, transform 0.3s;
         }
 
-        .social-icons a:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px);
+        footer i:hover {
+            color: #3B82F6;
+            transform: scale(1.2);
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-right: 5px;
-        }
-
-        /* دکمه بازگشت به بالا */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        /* ریسپانسیو */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                text-align: center;
-                padding-top: 5rem;
+            .carousel-caption h1 {
+                font-size: 2.5rem;
             }
-            
-            .hero h1 {
-                font-size: 2.2rem;
+            .carousel-caption p {
+                font-size: 1.3rem;
             }
-            
-            .hero p {
-                font-size: 1.1rem;
+            .carousel-caption i {
+                font-size: 2.5rem;
             }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .navbar-brand {
-                font-size: 1.5rem;
+            .service-card, .portfolio-card, .why-us-card, .news-card {
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- هدر -->
-    <header id="header">
-        <nav class="navbar navbar-expand-lg py-3">
+    <!-- Your HTML content remains unchanged -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    شرکت C <i class="fas fa-rocket"></i>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <a class="navbar-brand" href="#">شرکت C <i class="fas fa-rocket"></i></a>
+                <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="#home">خانه</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#home">خانه</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">خدمات</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">نمونه‌کارها</a></li>
                         <li class="nav-item"><a class="nav-link" href="#why-us">چرا ما</a></li>
@@ -453,391 +414,230 @@
             </div>
         </nav>
     </header>
-
-    <!-- هیرو -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="hero-content">
-                        <h1 class="text-white">نوآوری در فناوری برای آینده‌ای بهتر</h1>
-                        <p class="text-white-50">شرکت C با ارائه راه‌حل‌های خلاقانه در زمینه فناوری اطلاعات، تجربه‌ای منحصر به فرد برای شما ایجاد می‌کند.</p>
-                        <div class="d-flex gap-3">
-                            <a href="#services" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower">
-                                <i class="fas fa-arrow-left me-2"></i> خدمات ما
-                            </a>
-                            <a href="#contact" class="btn btn-outline-light">
-                                تماس با ما <i class="fas fa-phone ms-2"></i>
-                            </a>
+        <div class="carousel slide" data-bs-ride="carousel" id="carouselHero">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1920x1080?text=C_CHAT');">
+                    <div class="carousel-caption">
+                        <i class="fas fa-comments"></i>
+                        <div>
+                            <h1>C_CHAT: ارتباطی امن و سریع</h1>
+                            <p>پیام‌رسانی مدرن برای دنیای دیجیتال</p>
+                            <a class="btn btn-primary" href="#services">بیشتر بدانید</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
-                    <div class="hero-image">
-                        <img src="https://via.placeholder.com/600x400?text=شرکت+C" alt="شرکت C" class="img-fluid">
+                <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080?text=C_DRIVE');">
+                    <div class="carousel-caption">
+                        <i class="fas fa-cloud"></i>
+                        <div>
+                            <h1>C_DRIVE: ذخیره‌سازی ابری</h1>
+                            <p>داده‌های شما، همیشه در دسترس</p>
+                            <a class="btn btn-primary" href="#services">بیشتر بدانید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080?text=VPN');">
+                    <div class="carousel-caption">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h1>VPN: امنیت در دنیای آنلاین</h1>
+                            <p>در حال توسعه برای حفاظت از حریم خصوصی شما</p>
+                            <a class="btn btn-primary" href="#services">بیشتر بدانید</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselHero" type="button">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselHero" type="button">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
     </section>
-
-    <!-- خدمات -->
-    <section id="services" class="bg-light">
-        <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
-        </div>
+    <section class="services animate-on-scroll" id="services">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">خدمات ما</h2>
-                <p class="text-muted">خدمات متنوع و با کیفیت ما برای رفع نیازهای فناوری شما</p>
-            </div>
+            <h2 class="text-center mb-5">خدمات ما</h2>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
+                <div class="col-md-3 col-sm-6">
                     <div class="service-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-comments pulse"></i>
-                        </div>
+                        <i class="fas fa-comments"></i>
                         <h3>C_CHAT</h3>
-                        <p class="text-muted">پیام‌رسانی امن و سریع برای ارتباط بدون مرز با رمزنگاری پیشرفته</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">اطلاعات بیشتر</a>
+                        <p>پیام‌رسانی امن و سریع برای ارتباط بدون مرز</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <div class="col-md-3 col-sm-6">
                     <div class="service-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-cloud pulse"></i>
-                        </div>
+                        <i class="fas fa-cloud"></i>
                         <h3>C_DRIVE</h3>
-                        <p class="text-muted">خدمات ابری قدرتمند برای ذخیره‌سازی و مدیریت داده‌ها با دسترسی آسان</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">اطلاعات بیشتر</a>
+                        <p>خدمات ابری قدرتمند برای ذخیره‌سازی و مدیریت داده‌ها</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="col-md-3 col-sm-6">
                     <div class="service-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-shield-alt pulse"></i>
-                        </div>
+                        <i class="fas fa-shield-alt"></i>
                         <h3>VPN</h3>
-                        <p class="text-muted">شبکه خصوصی مجازی با امنیت بالا برای محافظت از حریم خصوصی شما</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">اطلاعات بیشتر</a>
+                        <p>در حال توسعه: شبکه خصوصی مجازی برای امنیت</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- نمونه‌کارها -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">نمونه‌کارها</h2>
-                <p class="text-muted">برخی از پروژه‌های موفق ما که با افتخار ارائه کرده‌ایم</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-duration="800">
-                    <div class="portfolio-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-cloud pulse"></i>
-                        </div>
-                        <h3>C_DRIVE</h3>
-                        <p class="text-muted">پلتفرم ابری با قابلیت دسترسی بالا و امنیت پیشرفته</p>
-                        <a href="https://aamirmahdi.pythonanywhere.com/" target="_blank" class="btn btn-sm btn-primary mt-3">
-                            مشاهده سایت <i class="fas fa-external-link-alt ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                    <div class="portfolio-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-comments pulse"></i>
-                        </div>
-                        <h3>C_CHAT</h3>
-                        <p class="text-muted">پیام‌رسان پیشرفته با رمزنگاری پایان‌به‌پایان و رابط کاربری زیبا</p>
-                        <a href="https://aamrmmahdi.pythonanywhere.com/" target="_blank" class="btn btn-sm btn-primary mt-3">
-                            مشاهده سایت <i class="fas fa-external-link-alt ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
-                    <div class="portfolio-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-globe pulse"></i>
-                        </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-card">
+                        <i class="fas fa-globe"></i>
                         <h3>سایت شخصی</h3>
-                        <p class="text-muted">وب‌سایت حرفه‌ای و شخصی‌سازی‌شده با طراحی مدرن و واکنشگرا</p>
-                        <a href="https://c-personal.onrender.com" target="_blank" class="btn btn-sm btn-primary mt-3">
-                            مشاهده سایت <i class="fas fa-external-link-alt ms-2"></i>
-                        </a>
+                        <p>طراحی وب‌سایت‌های حرفه‌ای و شخصی‌سازی‌شده</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- چرا ما -->
-    <section id="why-us" class="bg-light">
-        <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
-        </div>
+    <section class="portfolio animate-on-scroll" id="portfolio">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">چرا ما را انتخاب کنید؟</h2>
-                <p class="text-muted">مزایای رقابتی ما که ما را از دیگران متمایز می‌کند</p>
-            </div>
+            <h2 class="text-center mb-5">نمونه‌کارها</h2>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
-                    <div class="why-us-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-lightbulb pulse"></i>
-                        </div>
-                        <h3>نوآوری مستمر</h3>
-                        <p class="text-muted">ما همواره در حال توسعه و ارائه راه‌حل‌های خلاقانه و پیشرفته هستیم تا نیازهای شما را به بهترین شکل برطرف کنیم.</p>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-card">
+                        <i class="fas fa-cloud"></i>
+                        <h3>C_DRIVE</h3>
+                        <p>پلتفرم ابری با قابلیت دسترسی بالا</p>
+                        <a href="https://aamirmahdi.pythonanywhere.com/" target="_blank">مشاهده سایت</a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                    <div class="why-us-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-star pulse"></i>
-                        </div>
-                        <h3>کیفیت بی‌نظیر</h3>
-                        <p class="text-muted">تعهد ما به کیفیت در تمام مراحل طراحی، توسعه و پشتیبانی محصولات و خدمات ما مشهود است.</p>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>C_CHAT</h3>
+                        <p>پیام‌رسان پیشرفته با رمزنگاری پایان‌به‌پایان</p>
+                        <a href="https://aamrmmahdi.pythonanywhere.com/" target="_blank">مشاهده سایت</a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                    <div class="why-us-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-heart pulse"></i>
-                        </div>
-                        <h3>تجربه کاربری عالی</h3>
-                        <p class="text-muted">محصولات ما با تمرکز بر راحتی و رضایت کاربر طراحی شده‌اند تا تجربه‌ای لذت‌بخش برای شما ایجاد کنند.</p>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>سایت شخصی</h3>
+                        <p>وب‌سایت حرفه‌ای و شخصی‌سازی‌شده</p>
+                        <a href="https://c-personal.onrender.com" target="_blank">مشاهده سایت</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- اخبار -->
-    <section id="news">
+    <section class="why-us animate-on-scroll" id="why-us">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">آخرین اخبار</h2>
-                <p class="text-muted">به‌روزرسانی‌ها و اخبار جدید درباره محصولات و خدمات ما</p>
-            </div>
+            <h2 class="text-center mb-5">چرا ما</h2>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
+                <div class="col-md-4 col-sm-6">
+                    <div class="why-us-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>نوآوری</h3>
+                        <p>ما از جدیدترین فناوری‌ها برای ارائه راه‌حل‌های خلاقانه استفاده می‌کنیم.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="why-us-card">
+                        <i class="fas fa-star"></i>
+                        <h3>کیفیت</h3>
+                        <p>تعهد ما به ارائه خدمات با بالاترین استانداردهای کیفی است.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="why-us-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>تجربه کاربری</h3>
+                        <p>محصولات ما با تمرکز بر راحتی و رضایت کاربر طراحی شده‌اند.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="news animate-on-scroll" id="news">
+        <div class="container">
+            <h2 class="text-center mb-5">اخبار و به‌روزرسانی‌ها</h2>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
                     <div class="news-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-bullhorn pulse"></i>
-                        </div>
+                        <i class="fas fa-bullhorn"></i>
                         <h3>راه‌اندازی C_CHAT</h3>
-                        <p class="text-muted">نسخه جدید پیام‌رسان C_CHAT با ویژگی‌های امنیتی پیشرفته و رابط کاربری بهبود یافته منتشر شد.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">ادامه مطلب</a>
+                        <p>نسخه جدید پیام‌رسان C_CHAT با ویژگی‌های امنیتی پیشرفته منتشر شد.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <div class="col-md-4 col-sm-6">
                     <div class="news-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-cloud-upload-alt pulse"></i>
-                        </div>
+                        <i class="fas fa-cloud-upload-alt"></i>
                         <h3>به‌روزرسانی C_DRIVE</h3>
-                        <p class="text-muted">افزایش ظرفیت ذخیره‌سازی تا 2 ترابایت و بهبود عملکرد سرورها در سرویس C_DRIVE.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">ادامه مطلب</a>
+                        <p>افزایش ظرفیت ذخیره‌سازی و بهبود عملکرد در C_DRIVE.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="col-md-4 col-sm-6">
                     <div class="news-card">
-                        <div class="icon-halo">
-                            <i class="fas fa-shield-alt pulse"></i>
-                        </div>
+                        <i class="fas fa-shield-alt"></i>
                         <h3>پیشرفت VPN</h3>
-                        <p class="text-muted">سرویس VPN شرکت C در مرحله آزمایش نهایی قرار دارد و به زودی در دسترس عموم قرار خواهد گرفت.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">ادامه مطلب</a>
+                        <p>VPN شرکت C در مرحله آزمایش نهایی قرار دارد.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- درباره ما -->
-    <section id="about" class="bg-light">
-        <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
-        </div>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-                    <img src="https://via.placeholder.com/600x400?text=درباره+ما" alt="درباره ما" class="img-fluid rounded shadow">
-                </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
-                    <h2 class="section-title">درباره شرکت C</h2>
-                    <p class="text-muted">شرکت C با هدف ارائه راه‌حل‌های نوآورانه در حوزه فناوری اطلاعات تأسیس شده است. ما با ارائه محصولاتی مثل C_CHAT و C_DRIVE، خدمات طراحی سایت، VPN در حال توسعه و راه‌حل‌های نرم‌افزاری و امنیتی، به دنبال ایجاد تجربه‌ای امن و کاربرپسند برای مشتریان خود هستیم.</p>
-                    <p class="text-muted">تیم ما متشکل از متخصصان با تجربه است که به نوآوری و کیفیت متعهد هستند. ما همواره در تلاش هستیم تا با استفاده از آخرین فناوری‌ها، محصولاتی با کیفیت و کارآمد ارائه دهیم که نیازهای روز مشتریان را برطرف کند.</p>
-                    <a href="#contact" class="btn btn-primary mt-3">تماس با ما</a>
-                </div>
-            </div>
+    <section class="about animate-on-scroll" id="about">
+        <div class="container text-center">
+            <i class="fas fa-users"></i>
+            <h2 class="mb-4">درباره ما</h2>
+            <p>شرکت C با هدف ارائه راه‌حل‌های نوآورانه در حوزه فناوری اطلاعات تأسیس شده است. ما با ارائه محصولاتی مثل C_CHAT و C_DRIVE، خدمات طراحی سایت، VPN در حال توسعه و راه‌حل‌های نرم‌افزاری و امنیتی، به دنبال ایجاد تجربه‌ای امن و کاربرپسند برای مشتریان خود هستیم. تیم ما متشکل از متخصصان با تجربه است که به نوآوری و کیفیت متعهد هستند.</p>
         </div>
     </section>
-
-    <!-- تماس با ما -->
-    <section id="contact">
+    <section class="contact animate-on-scroll" id="contact">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">تماس با ما</h2>
-                <p class="text-muted">برای دریافت اطلاعات بیشتر یا طرح سوالات خود با ما در ارتباط باشید</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
-                    <form class="contact-form">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="نام و نام خانوادگی" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="آدرس ایمیل" required>
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control" placeholder="موضوع">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" rows="5" placeholder="پیام شما" required></textarea>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary px-5">
-                                    <i class="fas fa-paper-plane me-2"></i> ارسال پیام
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <h2 class="text-center mb-5">تماس با ما</h2>
+            <form class="row g-3 justify-content-center">
+                <div class="col-md-6">
+                    <input class="form-control" placeholder="نام" required="" type="text"/>
                 </div>
-            </div>
+                <div class="col-md-6">
+                    <input class="form-control" placeholder="ایمیل" required="" type="email"/>
+                </div>
+                <div class="col-md-12">
+                    <textarea class="form-control" placeholder="پیام شما" required="" rows="6"></textarea>
+                </div>
+                <div class="col-md-8 text-center">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> ارسال</button>
+                </div>
+            </form>
         </div>
     </section>
-
-    <!-- فوتر -->
-    <footer>
+    <footer class="text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h3 class="text-white mb-4">شرکت C</h3>
-                    <p class="text-white-50">ما در شرکت C متعهد به ارائه بهترین راه‌حل‌های فناوری اطلاعات با کیفیت و امنیت بالا هستیم.</p>
-                    <div class="social-icons mt-4">
-                        <a href="#" class="animate__animated animate__pulse animate__infinite animate__slower"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="animate__animated animate__pulse animate__infinite animate__slower" style="animation-delay: 0.2s;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="animate__animated animate__pulse animate__infinite animate__slower" style="animation-delay: 0.4s;"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="animate__animated animate__pulse animate__infinite animate__slower" style="animation-delay: 0.6s;"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="text-white mb-4">لینک‌های سریع</h4>
-                    <div class="footer-links">
-                        <a href="#home"><i class="fas fa-chevron-left me-2"></i> خانه</a>
-                        <a href="#services"><i class="fas fa-chevron-left me-2"></i> خدمات</a>
-                        <a href="#portfolio"><i class="fas fa-chevron-left me-2"></i> نمونه‌کارها</a>
-                        <a href="#about"><i class="fas fa-chevron-left me-2"></i> درباره ما</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="text-white mb-4">خدمات ما</h4>
-                    <div class="footer-links">
-                        <a href="#"><i class="fas fa-chevron-left me-2"></i> C_CHAT</a>
-                        <a href="#"><i class="fas fa-chevron-left me-2"></i> C_DRIVE</a>
-                        <a href="#"><i class="fas fa-chevron-left me-2"></i> VPN</a>
-                        <a href="#"><i class="fas fa-chevron-left me-2"></i> طراحی سایت</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h4 class="text-white mb-4">تماس با ما</h4>
-                    <div class="text-white-50">
-                        <p><i class="fas fa-map-marker-alt me-2"></i> تهران، خیابان آزادی، کوچه شهید فلانی</p>
-                        <p><i class="fas fa-phone me-2"></i> 021-12345678</p>
-                        <p><i class="fas fa-envelope me-2"></i> info@company-c.ir</p>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4 bg-light">
-            <div class="text-center text-white-50">
-                <p class="mb-0">© 2025 شرکت C. تمامی حقوق محفوظ است.</p>
+            <p class="mb-3">© 2025 شرکت C. تمامی حقوق محفوظ است.</p>
+            <div>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
-
-    <!-- دکمه بازگشت به بالا -->
-    <a href="#" class="back-to-top animate__animated animate__fadeIn"><i class="fas fa-arrow-up"></i></a>
-
-    <!-- اسکریپت‌ها -->
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS (Animate On Scroll) -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
     <script>
-        // راه‌اندازی AOS
-        AOS.init({
-            once: true,
-            duration: 800,
-            easing: 'ease-in-out'
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
         });
-
-        // تغییر هدر هنگام اسکرول
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // نمایش/پنهان کردن دکمه بازگشت به بالا
-        window.addEventListener('scroll', function() {
-            const backToTop = document.querySelector('.back-to-top');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
-        });
-
-        // کلیک مخفی برای لوگو
+    </script>
+    <script>
         let secretClicks = 0;
         const logo = document.querySelector('.navbar-brand');
-        logo.addEventListener('click', (e) => {
-            e.preventDefault();
+        logo.addEventListener('click', () => {
             secretClicks++;
             setTimeout(() => { secretClicks = 0 }, 3000);
             if (secretClicks === 5) {
                 window.location.href = "https://amirmmahdi.pythonanywhere.com/";
             }
-        });
-
-        // انیمیشن برای لینک‌های ناوبری
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // انیمیشن برای کارت‌ها هنگام هاور
-        document.querySelectorAll('.service-card, .portfolio-card, .why-us-card, .news-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
         });
     </script>
 </body>
