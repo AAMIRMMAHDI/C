@@ -3,131 +3,84 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>شرکت C - نوآوری در فناوری</title>
+    <title>شرکت C - پیشرو در فناوری‌های AR/VR</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Vazir';
             src: url('https://cdn.fontcdn.ir/Fonts/Vazir/Vazir.woff') format('woff');
         }
-
         * {
             font-family: 'Vazir', Arial, sans-serif;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
-            background: #000;
-            color: #E0E7FF;
+            background: #0f0c29;
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            color: #fff;
             overflow-x: hidden;
-            position: relative;
-            perspective: 1000px; /* برای ایجاد حس عمق سه‌بعدی */
         }
 
-        /* افکت پس‌زمینه AR/VR */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://i.imgur.com/7yN2zX4.jpg') no-repeat center/cover;
-            opacity: 0.3;
-            z-index: -2;
-            animation: spaceDrift 20s linear infinite;
-        }
-
-        @keyframes spaceDrift {
-            0% { transform: translateZ(0) scale(1); }
-            50% { transform: translateZ(-100px) scale(1.1); }
-            100% { transform: translateZ(0) scale(1); }
-        }
-
-        /* هدر شناور هولوگرافیک */
+        /* هدر شیشه‌ای */
         header {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(88, 255, 255, 0.4);
-            position: fixed;
+            background: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
             top: 0;
-            width: 100%;
-            z-index: 2000;
-            transform: translateZ(50px);
-            transition: transform 0.5s;
-        }
-
-        header.scrolled {
-            transform: translateZ(0);
-            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
         }
 
         .navbar-brand {
-            font-size: 2.5rem;
-            color: #58FFFF !important;
-            text-shadow: 0 0 15px #58FFFF, 0 0 30px #3B82F6;
-            transform: rotateX(10deg);
-            transition: transform 0.3s, text-shadow 0.3s;
-        }
-
-        .navbar-brand:hover {
-            transform: rotateX(0) scale(1.1);
-            text-shadow: 0 0 25px #58FFFF, 0 0 50px #3B82F6;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff !important;
+            text-shadow: 0 0 10px rgba(100, 149, 237, 0.7);
         }
 
         .navbar-nav .nav-link {
-            color: #E0E7FF !important;
-            font-size: 1.3rem;
+            color: #fff !important;
+            font-size: 1.2rem;
+            transition: all 0.3s;
             position: relative;
-            padding: 0.5rem 1rem;
-            transform: translateZ(20px);
-            transition: transform 0.3s, color 0.3s;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #58FFFF !important;
-            transform: translateZ(40px);
-            text-shadow: 0 0 10px #58FFFF;
+            color: #6495ed !important;
+            text-shadow: 0 0 8px rgba(100, 149, 237, 0.5);
         }
 
         .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
             width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #58FFFF, transparent);
-            transform: translateX(-50%);
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: #6495ed;
             transition: width 0.3s;
         }
 
         .navbar-nav .nav-link:hover::after {
-            width: 80%;
+            width: 100%;
+            left: 0;
         }
 
-        /* هیرو با افکت VR */
+        /* اسلایدر هدر با افکت AR */
         .hero {
             height: 100vh;
             position: relative;
             overflow: hidden;
-            transform-style: preserve-3d;
         }
 
         .carousel-item {
             height: 100vh;
             background: no-repeat center/cover;
-            transform: translateZ(-100px) scale(1.2);
-            transition: transform 0.8s ease;
-        }
-
-        .carousel-item.active {
-            transform: translateZ(0) scale(1);
         }
 
         .carousel-item::before {
@@ -137,551 +90,762 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(88, 255, 255, 0.2));
-            z-index: 1;
+            background: rgba(15, 12, 41, 0.7);
         }
 
         .carousel-caption {
-            bottom: 30%;
-            z-index: 2;
+            bottom: 25%;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 2rem;
-            transform: translateZ(50px);
-            animation: vrPop 1.5s ease-out;
         }
 
         .carousel-caption h1 {
-            font-size: 5rem;
-            color: #58FFFF;
-            text-shadow: 0 0 20px #58FFFF, 0 0 40px #3B82F6;
-            transform: rotateX(15deg);
-            animation: holographicPulse 2s infinite;
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #6495ed, #9370db);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
         }
 
         .carousel-caption p {
-            font-size: 2rem;
-            color: #E0E7FF;
-            transform: rotateX(15deg);
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .carousel-caption i {
-            font-size: 5rem;
-            color: #58FFFF;
-            filter: drop-shadow(0 0 20px #58FFFF);
-            transform: translateZ(100px);
-            animation: floatIcon 3s infinite ease-in-out;
+            font-size: 4rem;
+            color: #6495ed;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(100, 149, 237, 0.7);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #3B82F6, #58FFFF);
+            background: linear-gradient(45deg, #6495ed, #9370db);
             border: none;
-            padding: 1.2rem 3rem;
-            font-size: 1.3rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
             border-radius: 50px;
-            box-shadow: 0 0 20px rgba(88, 255, 255, 0.6);
-            transform: translateZ(30px);
-            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(100, 149, 237, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary:hover {
-            transform: translateZ(50px) scale(1.1);
-            box-shadow: 0 0 30px rgba(88, 255, 255, 0.9);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(100, 149, 237, 0.6);
         }
 
-        /* انیمیشن‌های AR/VR */
-        @keyframes vrPop {
-            0% { transform: translateZ(-50px) scale(0.8); opacity: 0; }
-            100% { transform: translateZ(50px) scale(1); opacity: 1; }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
         }
 
-        @keyframes holographicPulse {
-            0%, 100% { text-shadow: 0 0 20px #58FFFF, 0 0 40px #3B82F6; }
-            50% { text-shadow: 0 0 30px #58FFFF, 0 0 60px #3B82F6; }
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
-        @keyframes floatIcon {
-            0%, 100% { transform: translateZ(100px) translateY(0); }
-            50% { transform: translateZ(100px) translateY(-15px); }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateZ(-50px) translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateZ(0) translateY(0);
-        }
-
-        /* بخش خدمات */
-        .services {
-            padding: 8rem 0;
+        /* بخش AR/VR Experience */
+        .ar-vr-section {
+            padding: 6rem 0;
+            background: url('https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
             position: relative;
         }
 
+        .ar-vr-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 12, 41, 0.85);
+        }
+
+        .ar-vr-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ar-vr-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 1rem;
+            transition: all 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            height: 100%;
+        }
+
+        .ar-vr-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(100, 149, 237, 0.3);
+            border: 1px solid rgba(100, 149, 237, 0.3);
+        }
+
+        .ar-vr-card i {
+            font-size: 3rem;
+            color: #6495ed;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        /* خدمات */
+        .services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+
         .service-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 3rem;
+            background: rgba(36, 36, 62, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2.5rem;
             text-align: center;
-            border: 2px solid rgba(88, 255, 255, 0.3);
-            transform: translateZ(20px);
-            transition: transform 0.5s, box-shadow 0.5s;
+            transition: all 0.4s;
+            border: 1px solid rgba(100, 149, 237, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 149, 237, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
         }
 
         .service-card:hover {
-            transform: translateZ(50px) scale(1.05);
-            box-shadow: 0 0 40px rgba(88, 255, 255, 0.7);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(100, 149, 237, 0.2);
+            border: 1px solid rgba(100, 149, 237, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
         }
 
         .service-card i {
-            font-size: 4rem;
-            color: #58FFFF;
-            margin-bottom: 2rem;
-            transform: translateZ(30px);
-            animation: spin3D 5s infinite linear;
+            font-size: 3rem;
+            color: #6495ed;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(100, 149, 237, 0.5);
         }
 
-        @keyframes spin3D {
-            0% { transform: translateZ(30px) rotateY(0deg); }
-            100% { transform: translateZ(30px) rotateY(360deg); }
-        }
-
-        /* نمونه‌کارها */
+        /* نمونه‌کارها با افکت VR */
         .portfolio {
-            padding: 8rem 0;
-            background: rgba(0, 0, 0, 0.8);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0f0c29, #24243e);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80') no-repeat center/cover;
+            opacity: 0.1;
         }
 
         .portfolio-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 2.5rem;
+            background: rgba(36, 36, 62, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            border: 2px solid rgba(88, 255, 255, 0.3);
-            transform: translateZ(20px);
-            transition: transform 0.5s, box-shadow 0.5s;
+            transition: all 0.4s;
+            border: 1px solid rgba(100, 149, 237, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
 
         .portfolio-card:hover {
-            transform: translateZ(50px) scale(1.05);
-            box-shadow: 0 0 40px rgba(88, 255, 255, 0.7);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(100, 149, 237, 0.3);
+            border: 1px solid rgba(100, 149, 237, 0.4);
         }
 
-        .portfolio-card i {
-            font-size: 4rem;
-            color: #58FFFF;
-            margin-bottom: 2rem;
+        .portfolio-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            transition: all 0.5s;
         }
 
-        .portfolio-card a {
-            color: #E0E7FF;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s, text-shadow 0.3s;
+        .portfolio-card:hover img {
+            transform: scale(1.05);
         }
 
-        .portfolio-card a:hover {
-            color: #58FFFF;
-            text-shadow: 0 0 10px #58FFFF;
+        .portfolio-card .vr-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(100, 149, 237, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
         }
 
         /* چرا ما */
         .why-us {
-            padding: 8rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #24243e, #302b63);
         }
 
         .why-us-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 2.5rem;
+            background: rgba(36, 36, 62, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            border: 2px solid rgba(88, 255, 255, 0.3);
-            transform: translateZ(20px);
-            transition: transform 0.5s;
+            transition: all 0.4s;
+            border: 1px solid rgba(100, 149, 237, 0.1);
+            height: 100%;
         }
 
         .why-us-card:hover {
-            transform: translateZ(40px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(100, 149, 237, 0.2);
+            border: 1px solid rgba(100, 149, 237, 0.3);
         }
 
         .why-us-card i {
-            font-size: 3.5rem;
-            color: #58FFFF;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: #6495ed;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
         }
 
-        /* اخبار */
+        /* اخبار و به‌روزرسانی‌ها */
         .news {
-            padding: 8rem 0;
-            background: rgba(0, 0, 0, 0.8);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
         }
 
         .news-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 2.5rem;
+            background: rgba(36, 36, 62, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            border: 2px solid rgba(88, 255, 255, 0.3);
-            transform: translateZ(20px);
-            transition: transform 0.5s;
+            transition: all 0.4s;
+            border: 1px solid rgba(100, 149, 237, 0.1);
+            height: 100%;
         }
 
         .news-card:hover {
-            transform: translateZ(40px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(100, 149, 237, 0.2);
+            border: 1px solid rgba(100, 149, 237, 0.3);
         }
 
         .news-card i {
-            font-size: 3.5rem;
-            color: #58FFFF;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: #6495ed;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
         }
 
         /* درباره ما */
         .about {
-            padding: 8rem 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: linear-gradient(135deg, #0f0c29, #24243e);
+            color: #fff;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            opacity: 0.1;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 1;
         }
 
         .about i {
             font-size: 4rem;
-            color: #58FFFF;
-            margin-bottom: 2rem;
-            transform: translateZ(30px);
+            color: #6495ed;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(100, 149, 237, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         /* تماس با ما */
         .contact {
-            padding: 8rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #24243e, #302b63);
         }
 
         .contact input, .contact textarea {
-            background: rgba(88, 255, 255, 0.1);
-            border: 2px solid rgba(88, 255, 255, 0.3);
-            border-radius: 15px;
-            color: #E0E7FF;
-            padding: 1.2rem;
-            font-size: 1.2rem;
-            transform: translateZ(20px);
-            transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
+            background: rgba(36, 36, 62, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(100, 149, 237, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            padding: 1rem;
+            font-size: 1.1rem;
+            transition: all 0.3s;
         }
 
         .contact input:focus, .contact textarea:focus {
-            border: 2px solid #58FFFF;
-            box-shadow: 0 0 20px rgba(88, 255, 255, 0.6);
-            transform: translateZ(30px);
+            background: rgba(36, 36, 62, 0.9);
+            outline: none;
+            border: 1px solid rgba(100, 149, 237, 0.5);
+            box-shadow: 0 0 10px rgba(100, 149, 237, 0.3);
         }
 
         .contact textarea {
             width: 100%;
         }
 
+        .contact ::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         /* فوتر */
         footer {
-            background: #000;
-            color: #E0E7FF;
-            padding: 4rem 0;
-            border-top: 2px solid rgba(88, 255, 255, 0.3);
+            background: #0f0c29;
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            opacity: 0.05;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
         }
 
         footer i {
-            font-size: 2rem;
-            margin: 0 1rem;
-            color: #58FFFF;
-            transform: translateZ(20px);
-            transition: transform 0.3s, color 0.3s;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            color: #6495ed;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px rgba(100, 149, 237, 0.5);
         }
 
         footer i:hover {
-            color: #3B82F6;
-            transform: translateZ(40px) scale(1.2);
+            color: #9370db;
+            transform: translateY(-5px);
+        }
+
+        /* افکت VR برای عناصر */
+        .vr-effect {
+            position: relative;
+        }
+
+        .vr-effect::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid rgba(100, 149, 237, 0.5);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .vr-effect:hover::after {
+            opacity: 1;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
         }
 
         /* ریسپانسیو */
         @media (max-width: 768px) {
             .carousel-caption h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             .carousel-caption p {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
             .carousel-caption i {
                 font-size: 3rem;
             }
             .service-card, .portfolio-card, .why-us-card, .news-card {
-                margin-bottom: 2.5rem;
-                transform: translateZ(10px);
+                margin-bottom: 1.5rem;
             }
-            .service-card:hover, .portfolio-card:hover, .why-us-card:hover, .news-card:hover {
-                transform: translateZ(20px) scale(1.05);
+        }
+
+        /* انیمیشن‌های سفارشی */
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(100, 149, 237, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(100, 149, 237, 0.8), 0 0 20px rgba(100, 149, 237, 0.6);
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="#">شرکت C <i class="fas fa-rocket"></i></a>
-                <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#home">خانه</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">خدمات</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">نمونه‌کارها</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#why-us">چرا ما</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#news">اخبار</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">درباره ما</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">تماس</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <section class="hero" id="home">
-        <div class="carousel slide" data-bs-ride="carousel" id="carouselHero">
-            <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1920x1080?text=C_CHAT');">
-                    <div class="carousel-caption">
-                        <i class="fas fa-comments"></i>
-                        <div>
-                            <h1>C_CHAT: ارتباطی امن و سریع</h1>
-                            <p>پیام‌رسانی مدرن برای دنیای دیجیتال</p>
-                            <a class="btn btn-primary" href="#services">بیشتر بدانید</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080?text=C_DRIVE');">
-                    <div class="carousel-caption">
-                        <i class="fas fa-cloud"></i>
-                        <div>
-                            <h1>C_DRIVE: ذخیره‌سازی ابری</h1>
-                            <p>داده‌های شما، همیشه در دسترس</p>
-                            <a class="btn btn-primary" href="#services">بیشتر بدانید</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080?text=VPN');">
-                    <div class="carousel-caption">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <h1>VPN: امنیت در دنیای آنلاین</h1>
-                            <p>در حال توسعه برای حفاظت از حریم خصوصی شما</p>
-                            <a class="btn btn-primary" href="#services">بیشتر بدانید</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselHero" type="button">
-                <span class="carousel-control-prev-icon"></span>
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-vr-cardboard"></i> شرکت C</a>
+            <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselHero" type="button">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
-    </section>
-    <section class="services animate-on-scroll" id="services">
-        <div class="container">
-            <h2 class="text-center mb-5">خدمات ما</h2>
-            <div class="row g-4">
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-card">
-                        <i class="fas fa-comments"></i>
-                        <h3>C_CHAT</h3>
-                        <p>پیام‌رسانی امن و سریع برای ارتباط بدون مرز</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-card">
-                        <i class="fas fa-cloud"></i>
-                        <h3>C_DRIVE</h3>
-                        <p>خدمات ابری قدرتمند برای ذخیره‌سازی و مدیریت داده‌ها</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>VPN</h3>
-                        <p>در حال توسعه: شبکه خصوصی مجازی برای امنیت</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-card">
-                        <i class="fas fa-globe"></i>
-                        <h3>سایت شخصی</h3>
-                        <p>طراحی وب‌سایت‌های حرفه‌ای و شخصی‌سازی‌شده</p>
-                    </div>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ar-vr">AR/VR</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">خدمات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">نمونه‌کارها</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-us">چرا ما</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">اخبار</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">درباره ما</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">تماس</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-    <section class="portfolio animate-on-scroll" id="portfolio">
-        <div class="container">
-            <h2 class="text-center mb-5">نمونه‌کارها</h2>
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6">
-                    <div class="portfolio-card">
-                        <i class="fas fa-cloud"></i>
-                        <h3>C_DRIVE</h3>
-                        <p>پلتفرم ابری با قابلیت دسترسی بالا</p>
-                        <a href="https://aamirmahdi.pythonanywhere.com/" target="_blank">مشاهده سایت</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="portfolio-card">
-                        <i class="fas fa-comments"></i>
-                        <h3>C_CHAT</h3>
-                        <p>پیام‌رسان پیشرفته با رمزنگاری پایان‌به‌پایان</p>
-                        <a href="https://aamrmmahdi.pythonanywhere.com/" target="_blank">مشاهده سایت</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="portfolio-card">
-                        <i class="fas fa-globe"></i>
-                        <h3>سایت شخصی</h3>
-                        <p>وب‌سایت حرفه‌ای و شخصی‌سازی‌شده</p>
-                        <a href="https://c-personal.onrender.com" target="_blank">مشاهده سایت</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="why-us animate-on-scroll" id="why-us">
-        <div class="container">
-            <h2 class="text-center mb-5">چرا ما</h2>
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6">
-                    <div class="why-us-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>نوآوری</h3>
-                        <p>ما از جدیدترین فناوری‌ها برای ارائه راه‌حل‌های خلاقانه استفاده می‌کنیم.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="why-us-card">
-                        <i class="fas fa-star"></i>
-                        <h3>کیفیت</h3>
-                        <p>تعهد ما به ارائه خدمات با بالاترین استانداردهای کیفی است.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="why-us-card">
-                        <i class="fas fa-heart"></i>
-                        <h3>تجربه کاربری</h3>
-                        <p>محصولات ما با تمرکز بر راحتی و رضایت کاربر طراحی شده‌اند.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="news animate-on-scroll" id="news">
-        <div class="container">
-            <h2 class="text-center mb-5">اخبار و به‌روزرسانی‌ها</h2>
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6">
-                    <div class="news-card">
-                        <i class="fas fa-bullhorn"></i>
-                        <h3>راه‌اندازی C_CHAT</h3>
-                        <p>نسخه جدید پیام‌رسان C_CHAT با ویژگی‌های امنیتی پیشرفته منتشر شد.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="news-card">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <h3>به‌روزرسانی C_DRIVE</h3>
-                        <p>افزایش ظرفیت ذخیره‌سازی و بهبود عملکرد در C_DRIVE.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="news-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>پیشرفت VPN</h3>
-                        <p>VPN شرکت C در مرحله آزمایش نهایی قرار دارد.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="about animate-on-scroll" id="about">
-        <div class="container text-center">
-            <i class="fas fa-users"></i>
-            <h2 class="mb-4">درباره ما</h2>
-            <p>شرکت C با هدف ارائه راه‌حل‌های نوآورانه در حوزه فناوری اطلاعات تأسیس شده است. ما با ارائه محصولاتی مثل C_CHAT و C_DRIVE، خدمات طراحی سایت، VPN در حال توسعه و راه‌حل‌های نرم‌افزاری و امنیتی، به دنبال ایجاد تجربه‌ای امن و کاربرپسند برای مشتریان خود هستیم. تیم ما متشکل از متخصصان با تجربه است که به نوآوری و کیفیت متعهد هستند.</p>
-        </div>
-    </section>
-    <section class="contact animate-on-scroll" id="contact">
-        <div class="container">
-            <h2 class="text-center mb-5">تماس با ما</h2>
-            <form class="row g-3 justify-content-center">
-                <div class="col-md-6">
-                    <input class="form-control" placeholder="نام" required="" type="text"/>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" placeholder="ایمیل" required="" type="email"/>
-                </div>
-                <div class="col-md-12">
-                    <textarea class="form-control" placeholder="پیام شما" required="" rows="6"></textarea>
-                </div>
-                <div class="col-md-8 text-center">
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> ارسال</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-3">© 2025 شرکت C. تمامی حقوق محفوظ است.</p>
-            <div>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // انیمیشن اسکرول
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-        document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            observer.observe(element);
-        });
+    </nav>
+</header>
 
-        // افکت هدر هنگام اسکرول
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+<section class="hero" id="home">
+    <div class="carousel slide" data-bs-ride="carousel" id="carouselHero">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="carousel-caption">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <div>
+                        <h1>تجربه‌های واقعیت مجازی خیره‌کننده</h1>
+                        <p>با فناوری VR ما، دنیاهای جدیدی را کشف کنید و تجربه‌های منحصر به فردی داشته باشید</p>
+                        <a class="btn btn-primary" href="#ar-vr">بیشتر بدانید</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80');">
+                <div class="carousel-caption">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div>
+                        <h1>واقعیت افزوده در کف دست شما</h1>
+                        <p>با راه‌حل‌های AR ما، دنیای فیزیکی و دیجیتال را ترکیب کنید</p>
+                        <a class="btn btn-primary" href="#ar-vr">بیشتر بدانید</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="carousel-caption">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <h1>پلتفرم‌های ترکیبی AR/VR</h1>
+                        <p>تجربه‌های یکپارچه که مرز بین واقعیت و مجاز را محو می‌کنند</p>
+                        <a class="btn btn-primary" href="#ar-vr">بیشتر بدانید</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselHero" type="button">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselHero" type="button">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<section class="ar-vr-section" id="ar-vr">
+    <div class="container ar-vr-content">
+        <h2 class="text-center mb-5 glow">تجربه‌های AR/VR</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="ar-vr-card vr-effect" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <h3>واقعیت مجازی (VR)</h3>
+                    <p>با هدست‌های VR ما، وارد دنیاهای کاملاً غوطه‌ور شوید. از آموزش‌های تعاملی تا تورهای مجازی، ما تجربه‌های VR منحصر به فردی ارائه می‌دهیم.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ar-vr-card vr-effect" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>واقعیت افزوده (AR)</h3>
+                    <p>با فناوری AR ما، اطلاعات دیجیتال را بر روی دنیای واقعی قرار دهید. از برنامه‌های خرید تا راهنماهای تعمیرات، AR زندگی را ساده‌تر می‌کند.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ar-vr-card vr-effect" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-globe"></i>
+                    <h3>واقعیت ترکیبی (MR)</h3>
+                    <p>تجربه‌های ترکیبی که در آن دنیای فیزیکی و دیجیتال به صورت پویا با هم تعامل دارند. آینده تعامل انسان و کامپیوتر همینجاست.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="text-center mb-5 glow">خدمات ما</h2>
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <h3>راه‌حل‌های VR</h3>
+                    <p>طراحی و توسعه تجربه‌های واقعیت مجازی سفارشی برای صنایع مختلف</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>برنامه‌های AR</h3>
+                    <p>توسعه برنامه‌های واقعیت افزوده برای iOS و Android با قابلیت‌های پیشرفته</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>بازی‌های VR/AR</h3>
+                    <p>خلق بازی‌های تعاملی و جذاب با استفاده از فناوری‌های واقعیت مجازی و افزوده</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>آموزش VR/AR</h3>
+                    <p>محیط‌های آموزشی تعاملی با استفاده از فناوری‌های نوین واقعیت مجازی و افزوده</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <h2 class="text-center mb-5 glow">نمونه‌کارها</h2>
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="vr-icon">VR</span>
+                    <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="VR Education">
+                    <h3>آموزش پزشکی VR</h3>
+                    <p>پلتفرم آموزشی برای دانشجویان پزشکی با شبیه‌سازی جراحی‌های واقعی</p>
+                    <a href="#" class="btn btn-sm btn-primary">مشاهده دمو</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="vr-icon">AR</span>
+                    <img src="https://images.unsplash.com/photo-1581093450022-6cdd5dcd9c2e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AR Shopping">
+                    <h3>خرید AR</h3>
+                    <p>برنامه خرید که به کاربران اجازه می‌دهد مبلمان را در خانه خود قبل از خرید ببینند</p>
+                    <a href="#" class="btn btn-sm btn-primary">مشاهده دمو</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="vr-icon">VR</span>
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="VR Tourism">
+                    <h3>تور مجازی</h3>
+                    <p>تجربه بازدید از مکان‌های تاریخی و گردشگری در محیط کاملاً غوطه‌ور VR</p>
+                    <a href="#" class="btn btn-sm btn-primary">مشاهده دمو</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-us" id="why-us">
+    <div class="container">
+        <h2 class="text-center mb-5 glow">چرا ما</h2>
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6">
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>تخصص در AR/VR</h3>
+                    <p>ما با سال‌ها تجربه در توسعه راه‌حل‌های واقعیت مجازی و افزوده، پیشرو در این صنعت هستیم.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-star"></i>
+                    <h3>کیفیت بی‌نظیر</h3>
+                    <p>تعهد ما به کیفیت در هر مرحله از طراحی و توسعه، تجربه‌های خیره‌کننده‌ای خلق می‌کند.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-heart"></i>
+                    <h3>تمرکز بر کاربر</h3>
+                    <p>محصولات ما با تمرکز کامل بر تجربه کاربری و رضایت مشتری طراحی شده‌اند.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="news" id="news">
+    <div class="container">
+        <h2 class="text-center mb-5 glow">اخبار و به‌روزرسانی‌ها</h2>
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>راه‌اندازی پلتفرم VR جدید</h3>
+                    <p>نسخه جدید پلتفرم واقعیت مجازی ما با قابلیت‌های پیشرفته منتشر شد.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>به‌روزرسانی موتور AR</h3>
+                    <p>موتور واقعیت افزوده ما با دقت و عملکرد بهبود یافته به‌روزرسانی شد.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-award"></i>
+                    <h3>جایزه بهترین نوآوری</h3>
+                    <p>شرکت ما جایزه بهترین نوآوری در فناوری‌های AR/VR را دریافت کرد.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container about-content text-center">
+        <i class="fas fa-users"></i>
+        <h2 class="mb-4 glow">درباره ما</h2>
+        <p class="mx-auto" style="max-width: 800px;">
+            شرکت C پیشرو در توسعه راه‌حل‌های واقعیت مجازی و افزوده در منطقه است. ما با تیمی از متخصصان با تجربه در حوزه‌های مختلف فناوری، از طراحی و توسعه تا پیاده‌سازی راه‌حل‌های AR/VR، به کسب‌وکارها و سازمان‌ها کمک می‌کنیم تا از پتانسیل کامل این فناوری‌های نوظهور استفاده کنند. مأموریت ما ایجاد تجربه‌های دیجیتالی خیره‌کننده است که مرز بین واقعیت و تخیل را محو می‌کنند.
+        </p>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="text-center mb-5 glow">تماس با ما</h2>
+        <form class="row g-3 justify-content-center">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <input class="form-control" placeholder="نام" required="" type="text"/>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <input class="form-control" placeholder="ایمیل" required="" type="email"/>
+            </div>
+            <div class="col-md-12" data-aos="fade-up" data-aos-delay="300">
+                <textarea class="form-control" placeholder="پیام شما" required="" rows="6"></textarea>
+            </div>
+            <div class="col-md-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> ارسال</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content text-center">
+        <p class="mb-3">© 2025 شرکت C. تمامی حقوق محفوظ است.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS animation
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // VR hover effect
+    document.querySelectorAll('.vr-effect').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'perspective(1000px) rotateX(5deg) rotateY(5deg)';
+            card.style.boxShadow = '0 20px 40px rgba(100, 149, 237, 0.4)';
         });
-    </script>
-    <script>
-        let secretClicks = 0;
-        const logo = document.querySelector('.navbar-brand');
-        logo.addEventListener('click', () => {
-            secretClicks++;
-            setTimeout(() => { secretClicks = 0 }, 3000);
-            if (secretClicks === 5) {
-                window.location.href = "https://amirmmahdi.pythonanywhere.com/";
-            }
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.boxShadow = '';
         });
-    </script>
+    });
+
+    // Secret code for hidden page
+    let secretClicks = 0;
+    const logo = document.querySelector('.navbar-brand');
+    logo.addEventListener('click', () => {
+        secretClicks++;
+        setTimeout(() => { secretClicks = 0 }, 3000);
+        if (secretClicks === 5) {
+            window.location.href = "https://example.com/secret-vr-page";
+        }
+    });
+</script>
 </body>
-</html>
+                        </html>
