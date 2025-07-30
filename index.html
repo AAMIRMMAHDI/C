@@ -558,257 +558,48 @@
             text-shadow: 0 0 10px rgba(249, 203, 40, 0.5);
         }
 
-        /* ریسپانسیو - بهبود یافته */
-        @media (max-width: 1199px) {
+        /* ریسپانسیو */
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 3.8rem;
-            }
-            .about-text {
-                padding-left: 30px;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            .hero p {
-                font-size: 1.3rem;
+                font-size: 3.5rem;
             }
             .about-content {
                 flex-direction: column;
             }
             .about-text {
                 padding-left: 0;
-                margin-top: 40px;
+                margin-top: 50px;
             }
             .contact-info {
                 padding-right: 0;
-                margin-bottom: 40px;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .btn-main {
+                padding: 12px 30px;
             }
             .service-card {
                 padding: 30px 20px;
             }
-        }
-
-        @media (max-width: 767px) {
-            /* هدر */
-            .navbar-brand {
-                font-size: 1.6rem;
-            }
-            
-            .navbar-toggler {
-                font-size: 1.2rem;
-                padding: 0.3rem 0.6rem;
-            }
-            
-            .nav-link {
-                font-size: 1rem;
-                padding: 0.6rem 1rem;
-                margin: 0;
-            }
-            
-            /* بخش هیرو */
-            .hero {
-                height: 85vh;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-                margin-bottom: 15px;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                margin-bottom: 25px;
-            }
-            
-            .btn-main {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-            
-            /* خدمات */
-            .services {
-                padding: 70px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .service-card {
-                padding: 25px 20px;
-                margin-bottom: 20px;
-            }
-            
-            .service-icon {
-                font-size: 2.8rem;
-                margin-bottom: 20px;
-            }
-            
-            /* نمونه کارها */
-            .portfolio {
-                padding: 70px 0;
-            }
-            
-            .portfolio-item {
-                height: 280px;
-                margin-bottom: 20px;
-            }
-            
-            .portfolio-overlay {
-                padding: 20px;
-            }
-            
-            .portfolio-title {
-                font-size: 1.3rem;
-            }
-            
-            /* درباره ما */
-            .about {
-                padding: 70px 0;
-            }
-            
-            /* تماس */
-            .contact {
-                padding: 70px 0;
-            }
-            
             .contact-form {
-                padding: 30px;
-            }
-            
-            .contact-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 575px) {
-            /* تنظیمات برای دستگاه‌های بسیار کوچک */
-            .hero {
-                height: 80vh;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title::after {
-                width: 70px;
-                height: 3px;
-                bottom: -15px;
-            }
-            
-            .portfolio-item {
-                height: 220px;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .contact-icon {
-                margin-left: 0;
-                margin-bottom: 15px;
-            }
-            
-            /* بهبود منوی موبایل */
-            .navbar-collapse {
-                background: rgba(0, 0, 0, 0.95);
-                padding: 15px;
-                margin-top: 15px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
-            
-            /* بهبود فوتر */
-            footer {
-                padding: 40px 0 20px;
-                text-align: center;
-            }
-            
-            .footer-logo {
-                font-size: 1.8rem;
-            }
-            
-            .footer-links {
-                margin-bottom: 30px;
-            }
-            
-            .footer-links h3 {
-                font-size: 1.2rem;
-                margin-bottom: 15px;
-            }
-            
-            .footer-links h3::after {
-                right: 50%;
-                transform: translateX(50%);
-            }
-            
-            .footer-social {
-                justify-content: center;
-                margin-top: 20px;
-            }
-            
-            .footer-social a {
-                margin: 0 8px;
-                width: 45px;
-                height: 45px;
-                line-height: 45px;
-                font-size: 1.1rem;
-            }
-            
-            .copyright {
-                margin-top: 40px;
-                font-size: 0.9rem;
-            }
-            
-            /* بهبود فرم خبرنامه */
-            .footer-newsletter .input-group {
-                flex-direction: column;
-            }
-            
-            .footer-newsletter .form-control {
-                margin-bottom: 10px;
-                width: 100%;
-            }
-            
-            .footer-newsletter .btn {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .hero h1 {
-                font-size: 1.7rem;
-            }
-            
-            .portfolio-item {
-                height: 200px;
-            }
-            
-            .service-card {
-                padding: 20px 15px;
-            }
-            
-            .service-card h3 {
-                font-size: 1.2rem;
-            }
-            
-            .contact-form {
-                padding: 25px 15px;
+                padding: 30px 20px;
             }
         }
     </style>
@@ -819,7 +610,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#">شرکت C</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -908,7 +699,9 @@
                     <div class="portfolio-item">
                         <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 2" class="portfolio-img">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">توسعه وب</span>
+                            <a href="https://aamrmmahdi.pythonanywhere.com/" target="_blank" style="color: inherit; text-decoration: none;">
+                                <span class="portfolio-category">توسعه وب</span>
+                            </a>
                             <h3 class="portfolio-title">پیامرسان </h3>
                             <a href="https://aamrmmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
                         </div>
@@ -920,7 +713,7 @@
                         <div class="portfolio-overlay">
                             <span class="portfolio-category">توسعه وب</span>
                             <h3 class="portfolio-title">فضای ابری</h3>
-                            <a href="https://aamirmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
+                            <a href="https://aamirmahdi.pythonanywhere.com/" class=btn-main btn-sm">مشاهده پروژه</a>
                         </div>
                     </div>
                 </div>
@@ -970,13 +763,22 @@
                 </div>
                 <div class="about-text animate__animated" data-animate="animate__fadeInRight">
                     <h3>ما تیمی از متخصصان خلاق هستیم</h3>
-                    <p>شرکت C در سال 1395 با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. ما با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
+                    <p>شرکت C در سال 1403 با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. ما با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
                     <p>تیم ما متشکل از طراحان، توسعه‌دهندگان و متخصصان بازاریابی دیجیتال است که با اشتیاق و تعهد، پروژه‌های شما را به بهترین شکل ممکن اجرا می‌کنند.</p>
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-name">
                                 <span>توسعه وب</span>
                                 <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>مارکتینگ</span>
+                                <span>75%</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 95%"></div>
@@ -1006,64 +808,6 @@
         </div>
     </section>
 
-    <!-- تیم -->
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-title">
-                <h2>تیم ما</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-member animate__animated" data-animate="animate__fadeInUp">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="عضو تیم" class="team-img">
-                        <h3>محمد رضایی</h3>
-                        <p>مدیر فنی</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-member animate__animated" data-animate="animate__fadeInUp" data-delay="100">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="عضو تیم" class="team-img">
-                        <h3>فاطمه محمدی</h3>
-                        <p>طراح UI/UX</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-member animate__animated" data-animate="animate__fadeInUp" data-delay="200">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="عضو تیم" class="team-img">
-                        <h3>علی حسینی</h3>
-                        <p>توسعه دهنده وب</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-member animate__animated" data-animate="animate__fadeInUp" data-delay="300">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="عضو تیم" class="team-img">
-                        <h3>زهرا کریمی</h3>
-                        <p>توسعه دهنده موبایل</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- تماس -->
     <section class="contact" id="contact">
@@ -1237,39 +981,19 @@
         $('a[href*="#"]').on('click', function(e) {
             e.preventDefault();
             
-            var target = $($(this).attr('href'));
-            if (target.length) {
-                var scrollOffset = target.offset().top - ($(window).width() < 992 ? 60 : 80);
-                
-                $('html, body').animate(
-                    {
-                        scrollTop: scrollOffset,
-                    },
-                    500,
-                    'linear'
-                );
-            }
-        });
-
-        // بهبود منوی موبایل
-        $('.navbar-toggler').click(function() {
-            $(this).toggleClass('active');
-        });
-
-        // بستن منو پس از کلیک روی آیتم‌ها در موبایل
-        $('.navbar-nav .nav-link').click(function() {
-            if ($(window).width() < 992) {
-                $('.navbar-collapse').collapse('hide');
-                $('.navbar-toggler').removeClass('active');
-            }
-        });
-
-        // لود آرام تصاویر برای بهبود عملکرد
-        $(function() {
-            $('img').each(function() {
-                $(this).attr('loading', 'lazy');
-            });
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top - 70,
+                },
+                500,
+                'linear'
+            );
         });
     </script>
 </body>
 </html>
+
+
+
+
+درود ایا میتونی این کد رو برای من اصلاح بکنی داخل نسخه موبایل خیلی بهم ریخته و نا منظم و بد هست
