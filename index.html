@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
@@ -19,66 +21,71 @@
         }
 
         body {
-            background-color: #0F172A;
-            color: #FFFFFF;
+            background-color: #000;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        /* هدر */
+        /* هدر مدرن */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.3s ease;
-            padding: 12px 0;
+            transition: all 0.5s ease;
+            padding: 15px 0;
         }
 
         header.scrolled {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 8px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-brand {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: #FBBF24;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             transition: all 0.3s;
         }
 
         .navbar-brand:hover {
-            color: #FFFFFF;
+            transform: scale(1.05);
         }
 
         .navbar-toggler {
             border: none;
-            color: #FFFFFF;
-            font-size: 1.5rem;
+            color: #fff;
+            font-size: 1.8rem;
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
         }
 
         .nav-link {
-            color: #D1D5DB !important;
-            font-size: 1rem;
-            margin: 0 8px;
+            color: #fff !important;
+            font-size: 1.1rem;
+            margin: 0 10px;
             position: relative;
             transition: all 0.3s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #FBBF24 !important;
+            padding: 10px 0 !important;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: -4px;
+            height: 3px;
+            bottom: -5px;
             right: 0;
-            background: #FBBF24;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
             transition: width 0.3s;
         }
 
@@ -87,7 +94,7 @@
             left: 0;
         }
 
-        /* هیرو */
+        /* بخش هیرو با ویدیوی پس‌زمینه */
         .hero {
             height: 100vh;
             position: relative;
@@ -95,7 +102,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 60px;
+            padding-top: 70px;
         }
 
         .hero-video {
@@ -106,104 +113,157 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 700px;
-            padding: 0 15px;
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: #FFFFFF;
-            margin-bottom: 15px;
-            line-height: 1.3;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #ddd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            color: #D1D5DB;
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
 
         .btn-main {
-            padding: 10px 25px;
-            background: #FBBF24;
-            color: #0F172A;
-            border-radius: 25px;
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+            color: #000;
+            border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(249, 203, 40, 0.4);
             border: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .btn-main:hover {
-            background: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(251, 191, 36, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(249, 203, 40, 0.6);
+            color: #000;
         }
 
-        /* خدمات */
+        /* بخش خدمات */
         .services {
-            padding: 60px 0;
-            background-color: #1წ
-
-System: 1F2937;
+            padding: 70px 0;
+            background-color: #111;
+            position: relative;
+            overflow: hidden;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            position: relative;
         }
 
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            color: #FBBF24;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            border-radius: 2px;
         }
 
         .service-card {
-            background: #1F2937;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: all 0.3s;
-            border: 1px solid rgba(251, 191, 36, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            transition: all 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 77, 77, 0.1),
+                rgba(249, 203, 40, 0.1),
+                transparent
+            );
+            transform: rotate(30deg);
+            transition: all 0.5s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.2);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+        }
+
+        .service-card:hover::before {
+            top: 0;
+            left: 0;
         }
 
         .service-icon {
-            font-size: 2.2rem;
-            color: #FBBF24;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
-            color: #FFFFFF;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
 
         .service-card p {
-            font-size: 0.9rem;
-            color: #D1D5DB;
+            font-size: 0.95rem;
         }
 
         /* نمونه کارها */
         .portfolio {
-            padding: 60px 0;
-            background-color: #0F172A;
+            padding: 70px 0;
+            background-color: #000;
         }
 
         .portfolio-item {
             position: relative;
+            margin-bottom: 20px;
             border-radius: 10px;
             overflow: hidden;
             height: 250px;
@@ -222,13 +282,13 @@ System: 1F2937;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 15px;
+            padding: 20px;
             opacity: 0;
-            transition: all 0.3s;
+            transition: all 0.5s;
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -236,273 +296,590 @@ System: 1F2937;
         }
 
         .portfolio-item:hover .portfolio-img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .portfolio-category {
-            color: #FBBF24;
+            color: #f9cb28;
             font-size: 0.8rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .portfolio-title {
-            font-size: 1.1rem;
-            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         /* درباره ما */
         .about {
-            padding: 60px 0;
-            background-color: #1F2937;
+            padding: 70px 0;
+            background-color: #111;
+            position: relative;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-text {
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s;
+            width: 100%;
+        }
+
+        .about-img:hover {
+            transform: scale(1.03);
         }
 
         .about-img img {
             width: 100%;
-            border-radius: 10px;
+            height: auto;
+            display: block;
         }
 
         .about-text h3 {
-            font-size: 1.6rem;
-            color: #FFFFFF;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
 
         .about-text p {
-            font-size: 0.9rem;
-            color: #D1D5DB;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            margin-top: 20px;
         }
 
         .skill-item {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .skill-name {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 8px;
             font-size: 0.9rem;
-            color: #FFFFFF;
         }
 
         .skill-bar {
-            height: 5px;
-            background: #374151;
-            border-radius: 5px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
         }
 
         .skill-progress {
             height: 100%;
-            background: #FBBF24;
-            border-radius: 5px;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            border-radius: 3px;
+            transition: width 1.5s ease;
+        }
+
+        /* تیم */
+        .team {
+            padding: 70px 0;
+            background-color: #000;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s;
+        }
+
+        .team-member:hover .team-img {
+            transform: scale(1.1);
+            border-color: #f9cb28;
+        }
+
+        .team-social {
+            margin-top: 15px;
+        }
+
+        .team-social a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin: 0 4px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .team-social a:hover {
+            background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+            color: #000;
+            transform: translateY(-5px);
         }
 
         /* تماس */
         .contact {
-            padding: 60px 0;
-            background-color: #1F2937;
+            padding: 70px 0;
+            background-color: #111;
+            position: relative;
         }
 
         .contact-form {
-            background: #1F2937;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
         }
 
         .form-control {
-            background: #374151;
+            background: rgba(255, 255, 255, 0.1);
             border: none;
             border-radius: 8px;
-            padding: 10px;
-            color: #FFFFFF;
+            padding: 12px;
+            color: #fff;
+            margin-bottom: 15px;
+            transition: all 0.3s;
             font-size: 0.9rem;
         }
 
         .form-control:focus {
-            background: #4B5563;
-            box-shadow: 0 0 5px rgba(251, 191, 36, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 8px rgba(249, 203, 40, 0.3);
+            color: #fff;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+        }
+
+        .contact-info {
+            padding-right: 0;
         }
 
         .contact-info h3 {
-            font-size: 1.6rem;
-            color: #FFFFFF;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: #FBBF24;
-            color: #0F172A;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+            color: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            margin-left: 10px;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            flex-shrink: 0;
         }
 
-        .contact-item h4 {
-            font-size: 1rem;
-            color: #FFFFFF;
+        .contact-item div h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
-        .contact-item p {
-            font-size: 0.85rem;
-            color: #D1D5DB;
+        .contact-item div p {
+            font-size: 0.9rem;
+            margin-bottom: 3px;
         }
 
         /* فوتر */
         footer {
-            background-color: #0F172A;
-            padding: 30px 0 10px;
+            background-color: #000;
+            padding: 40px 0 15px;
+            position: relative;
         }
 
         .footer-logo {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: #FBBF24;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            display: inline-block;
         }
 
         .footer-about p {
-            font-size: 0.85rem;
-            color: #D1D5DB;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .footer-social a {
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            background: #1F2937;
-            color: #FFFFFF;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
             border-radius: 50%;
-            margin-left: 5px;
             text-align: center;
+            margin-left: 8px;
             transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .footer-social a:hover {
-            background: #FBBF24;
-            color: #0F172A;
+            background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+            color: #000;
+            transform: translateY(-5px);
         }
 
         .footer-links h3 {
-            font-size: 1.1rem;
-            color: #FFFFFF;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+            list-style: none;
         }
 
         .footer-links ul li a {
-            color: #D1D5DB;
-            font-size: 0.85rem;
+            color: #aaa;
             text-decoration: none;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .footer-links ul li a:hover {
-            color: #FBBF24;
+            color: #f9cb28;
+            padding-right: 5px;
         }
 
         .footer-newsletter h3 {
-            font-size: 1.1rem;
-            color: #FFFFFF;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-newsletter p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-newsletter .input-group {
+            display: flex;
         }
 
         .footer-newsletter .form-control {
-            border-radius: 8px 0 0 8px;
+            flex: 1;
+            border-radius: 8px 0 0 8px !important;
+            font-size: 0.9rem;
         }
 
         .footer-newsletter .btn {
-            background: #FBBF24;
-            color: #0F172A;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 8px 8px 0 !important;
+            padding: 0 15px;
         }
 
         .copyright {
-            border-top: 1px solid #374151;
-            padding-top: 10px;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            color: #D1D5DB;
+            color: #aaa;
             font-size: 0.8rem;
         }
 
-        /* انیمیشن‌ها */
-        .animate__animated {
-            animation-duration: 0.6s;
+        /* انیمیشن‌های سفارشی */
+        .float {
+            animation: float 6s ease-in-out infinite;
         }
 
-        /* موبایل */
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .pulse {
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .glow {
+            text-shadow: 0 0 8px rgba(249, 203, 40, 0.5);
+        }
+
+        /* بهبود منوی موبایل */
+        .navbar-collapse {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .navbar-nav {
+            padding: 10px 0;
+        }
+
+        .nav-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        /* بهبود فوتر در موبایل */
+        .footer-links {
+            margin-bottom: 25px;
+        }
+
+        /* بهبود اسکرول برای موبایل */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* بهبودهای اختصاصی برای موبایل */
+        /* خدمات در موبایل */
+        @media (max-width: 768px) {
+            .services .row {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
             }
-            .hero p {
-                font-size: 0.9rem;
-            }
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-            .btn-main {
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
+            
             .service-card {
-                padding: 15px;
+                margin-bottom: 15px;
+                padding: 20px 15px;
+                border-radius: 12px;
             }
+            
             .service-icon {
-                font-size: 1.8rem;
-            }
-            .service-card h3 {
-                font-size: 1.1rem;
-            }
-            .service-card p {
-                font-size: 0.85rem;
-            }
-            .portfolio-item {
-                height: 200px;
-            }
-            .portfolio-overlay {
-                opacity: 1;
-                padding: 10px;
-            }
-            .portfolio-title {
-                font-size: 1rem;
-            }
-            .about-img {
+                font-size: 2rem;
                 margin-bottom: 15px;
             }
+            
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .service-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* درباره ما در موبایل */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                margin-bottom: 25px;
+                width: 100%;
+            }
+            
+            .about-text {
+                padding: 0;
+                text-align: center;
+            }
+            
             .about-text h3 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
-            .about-text p {
-                font-size: 0.85rem;
+            
+            .skills {
+                width: 100%;
             }
-            .skill-name {
-                font-size: 0.85rem;
+            
+            .skill-item {
+                margin-bottom: 12px;
             }
+        }
+
+        /* تماس در موبایل */
+        @media (max-width: 768px) {
+            .contact .row {
+                flex-direction: column-reverse;
+            }
+            
+            .contact-info {
+                margin-top: 30px;
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+
+        /* نمونه کارها در موبایل */
+        @media (max-width: 768px) {
+            .portfolio-item {
+                height: 200px;
+                margin-bottom: 15px;
+            }
+            
+            .portfolio-overlay {
+                padding: 15px;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .portfolio-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* تنظیمات خاص برای دستگاه‌های با عرض کمتر از 576px */
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-main {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .service-card {
+                padding: 20px 15px;
+            }
+            
+            .portfolio-item {
+                height: 180px;
+            }
+            
             .contact-form {
                 padding: 15px;
             }
+            
             .contact-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
-            .contact-item h4 {
-                font-size: 0.9rem;
-            }
-            .contact-item p {
-                font-size: 0.8rem;
-            }
+            
             .footer-logo {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
+            
+            /* بهبود فوتر در موبایل کوچک */
+            .footer-about, .footer-links, .footer-newsletter {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            
+            .footer-links h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* تنظیمات برای تبلت‌ها (768px تا 992px) */
+        @media (min-width: 768px) and (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .service-card {
+                padding: 25px 15px;
+            }
+            
+            .portfolio-item {
+                height: 250px;
+            }
+            
+            /* بهبود بخش درباره ما در تبلت */
+            .about-content {
+                flex-direction: row;
+            }
+            
+            .about-img {
+                width: 45%;
+                margin-left: 5%;
+            }
+            
+            .about-text {
+                width: 50%;
+            }
+        }
+
+        /* انیمیشن‌های موبایل */
+        .mobile-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .mobile-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -521,6 +898,7 @@ System: 1F2937;
                         <li class="nav-item"><a class="nav-link" href="#services">خدمات</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">نمونه کارها</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">درباره ما</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">تیم</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">تماس</a></li>
                     </ul>
                 </div>
@@ -528,7 +906,7 @@ System: 1F2937;
         </div>
     </header>
 
-    <!-- هیرو -->
+    <!-- بخش هیرو -->
     <section class="hero" id="home">
         <video autoplay muted loop class="hero-video">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-neon-lights-1230-large.mp4" type="video/mp4">
@@ -547,29 +925,29 @@ System: 1F2937;
                 <h2>خدمات ما</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="service-card animate__animated animate__fadeInUp">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card mobile-fade-in">
                         <i class="fas fa-code service-icon"></i>
                         <h3>توسعه وب</h3>
                         <p>طراحی و توسعه وبسایت‌های مدرن و واکنش‌گرا با آخرین فناوری‌ها</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="service-card animate__animated animate__fadeInUp" data-delay="100">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card mobile-fade-in">
                         <i class="fas fa-mobile-alt service-icon"></i>
                         <h3>اپلیکیشن موبایل</h3>
                         <p>توسعه اپلیکیشن‌های iOS و Android با UX حرفه‌ای</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="service-card animate__animated animate__fadeInUp" data-delay="200">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card mobile-fade-in">
                         <i class="fas fa-film service-icon"></i>
                         <h3>موشن گرافیک</h3>
                         <p>خلق انیمیشن‌های جذاب و حرفه‌ای برای برند شما</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="service-card animate__animated animate__fadeInUp" data-delay="300">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card mobile-fade-in">
                         <i class="fas fa-vr-cardboard service-icon"></i>
                         <h3>واقعیت مجازی</h3>
                         <p>تجربه‌های غوطه‌ور VR برای آموزش، سرگرمی و بازاریابی</p>
@@ -585,47 +963,41 @@ System: 1F2937;
             <div class="section-title">
                 <h2>نمونه کارها</h2>
             </div>
-            <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="portfolio-item">
-                            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 1" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <span class="portfolio-category">توسعه وب</span>
-                                <h3 class="portfolio-title">وبسایت فروشگاهی</h3>
-                                <a href="https://aamirmmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="portfolio-item">
-                            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 2" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <span class="portfolio-category">توسعه وب</span>
-                                <h3 class="portfolio-title">پیامرسان</h3>
-                                <a href="https://amirmmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="portfolio-item">
-                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 3" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <span class="portfolio-category">توسعه وب</span>
-                                <h3 class="portfolio-title">فضای ابری</h3>
-                                <a href="https://ytjkyu.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
-                            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item mobile-fade-in">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 1" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">توسعه وب</span>
+                            <h3 class="portfolio-title">وبسایت فروشگاهی</h3>
+                            <a href="https://aamirmmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">قبلی</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">بعدی</span>
-                </button>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item mobile-fade-in">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 2" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="https://amirmmahdi.pythonanywhere.com/" target="_blank" style="color: inherit; text-decoration: none;">
+                                <span class="portfolio-category">توسعه وب</span>
+                            </a>
+                            <h3 class="portfolio-title">پیامرسان </h3>
+                            <a href="https://aamrmmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item mobile-fade-in">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="پروژه 3" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="https://ytjkyu.pythonanywhere.com/" target="_blank" style="color: inherit; text-decoration: none;">
+                                <span class="portfolio-category">توسعه وب</span>
+                            </a>
+                            <h3 class="portfolio-title">فضای ابری</h3>
+                            <a href="https://aamirmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -636,53 +1008,49 @@ System: 1F2937;
             <div class="section-title">
                 <h2>درباره ما</h2>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="about-img animate__animated animate__fadeInLeft">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="تیم ما">
-                    </div>
+            <div class="about-content">
+                <div class="about-img mobile-fade-in">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="تیم ما">
                 </div>
-                <div class="col-md-6">
-                    <div class="about-text animate__animated animate__fadeInRight">
-                        <h3>ما تیمی از متخصصان خلاق هستیم</h3>
-                        <p>شرکت C در سال 1403 با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. ما با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
-                        <p>تیم ما متشکل از طراحان، توسعه‌دهندگان و متخصصان بازاریابی دیجیتال است که با اشتیاق و تعهد، پروژه‌های شما را به بهترین شکل ممکن اجرا می‌کنند.</p>
-                        <div class="skills">
-                            <div class="skill-item">
-                                <div class="skill-name">
-                                    <span>توسعه وب</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
+                <div class="about-text mobile-fade-in">
+                    <h3>ما تیمی از متخصصان خلاق هستیم</h3>
+                    <p>شرکت C در سال 1403 با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. ما با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
+                    <p>تیم ما متشکل از طراحان، توسعه‌دهندگان و متخصصان بازاریابی دیجital است که با اشتیاق و تعهد، پروژه‌های شما را به بهترین شکل ممکن اجرا می‌کنند.</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>توسعه وب</span>
+                                <span>95%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-name">
-                                    <span>مارکتینگ</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-name">
-                                    <span>موبایل</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>مارکتینگ</span>
+                                <span>75%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-name">
-                                    <span>طراحی UI/UX</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>موبایل</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>طراحی UI/UX</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
                     </div>
@@ -698,39 +1066,16 @@ System: 1F2937;
                 <h2>تماس با ما</h2>
             </div>
             <div class="row">
-                <div class="col-12">
-                    <div class="contact-form animate__animated animate__fadeInRight">
-                        <form>
-                            <div class="row">
-                                <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="نام شما">
-                                </div>
-                                <div class="col-12">
-                                    <input type="email" class="form-control" placeholder="ایمیل شما">
-                                </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="موضوع">
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control" placeholder="پیام شما"></textarea>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn-main mt-3">ارسال پیام</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="contact-info animate__animated animate__fadeInLeft mt-4">
-                        <h3>در ارتباط باشید</h3>
+                <div class="col-lg-5">
+                    <div class="contact-info mobile-fade-in">
+                        <h3 class="mb-4">در ارتباط باشید</h3>
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
                                 <h4>آدرس</h4>
-                                <p>مرکزی، اراک</p>
+                                <p>مرکزی , اراک</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -756,6 +1101,29 @@ System: 1F2937;
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-7">
+                    <div class="contact-form mobile-fade-in">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="نام شما">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="ایمیل شما">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="موضوع">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" placeholder="پیام شما"></textarea>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn-main mt-3">ارسال پیام</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -764,11 +1132,11 @@ System: 1F2937;
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-4">
                     <div class="footer-about">
                         <a href="#" class="footer-logo">شرکت C</a>
-                        <p>ما با ترکیب خلاقیت و فناوری، راه‌حل‌های دیجیتالی منحصر به فرد ارائه می‌دهیم.</p>
-                        <div class="footer-social">
+                        <p class="mt-3">ما با ترکیب خلاقیت و فناوری، راه‌حل‌های دیجیتالی منحصر به فرد ارائه می‌دهیم.</p>
+                        <div class="footer-social mt-4">
                             <a href="#"><i class="fab fa-telegram"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -804,10 +1172,10 @@ System: 1F2937;
                     <div class="footer-newsletter">
                         <h3>خبرنامه</h3>
                         <p>برای دریافت آخرین اخبار و پیشنهادهای ویژه، ایمیل خود را وارد کنید.</p>
-                        <form>
+                        <form class="mt-4">
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="ایمیل شما">
-                                <button class="btn" type="submit">عضویت</button>
+                                <button class="btn btn-primary" type="submit">عضویت</button>
                             </div>
                         </form>
                     </div>
@@ -823,6 +1191,7 @@ System: 1F2937;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        // اسکرول هدر
         $(window).scroll(function() {
             if ($(this).scrollTop() > 100) {
                 $('#header').addClass('scrolled');
@@ -831,27 +1200,74 @@ System: 1F2937;
             }
         });
 
-        $('.animate__animated').each(function() {
-            var position = $(this).offset().top;
-            var scroll = $(window).scrollTop();
-            var windowHeight = $(window).height();
-            if (scroll + windowHeight > position + 50) {
-                var animation = $(this).data('animate');
-                var delay = $(this).data('delay') || 0;
-                $(this).css('animation-delay', delay + 'ms');
-                $(this).addClass(animation);
-            }
+        // انیمیشن اسکرول
+        $(window).scroll(function() {
+            $('.animate__animated').each(function() {
+                var position = $(this).offset().top;
+                var scroll = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                
+                if (scroll + windowHeight > position + 100) {
+                    var animation = $(this).data('animate');
+                    var delay = $(this).data('delay') || 0;
+                    
+                    $(this).css('animation-delay', delay + 'ms');
+                    $(this).addClass(animation);
+                }
+            });
+            
+            // انیمیشن‌های موبایل
+            $('.mobile-fade-in').each(function() {
+                var position = $(this).offset().top;
+                var scroll = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                
+                if (scroll + windowHeight > position + 100) {
+                    $(this).addClass('visible');
+                }
+            });
         });
 
-        $('.navbar-nav>li>a').on('click', function() {
+        // بستن منوی موبایل پس از کلیک روی لینک
+        $('.navbar-nav>li>a').on('click', function(){
             $('.navbar-collapse').collapse('hide');
         });
 
+        // فعال کردن انیمیشن‌ها هنگام لود صفحه
+        $(document).ready(function() {
+            $('[data-animate="animate__fadeInUp"], [data-animate="animate__fadeInDown"], [data-animate="animate__fadeInLeft"], [data-animate="animate__fadeInRight"]').each(function() {
+                var animation = $(this).data('animate');
+                var delay = $(this).data('delay') || 0;
+                
+                $(this).css('animation-delay', delay + 'ms');
+                $(this).addClass(animation);
+            });
+            
+            // فعال کردن انیمیشن‌های موبایل برای عناصر در viewport
+            setTimeout(function() {
+                $('.mobile-fade-in').each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    
+                    if (scroll + windowHeight > position + 100) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }, 500);
+        });
+
+        // اسموت اسکرول برای لینک‌های منو
         $('a[href*="#"]').on('click', function(e) {
             e.preventDefault();
-            $('html, body').animate({
-                scrollTop: $($(this).attr('href')).offset().top - 60
-            }, 500, 'linear');
+            
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top - 70,
+                },
+                500,
+                'linear'
+            );
         });
     </script>
 </body>
