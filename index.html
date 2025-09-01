@@ -386,55 +386,6 @@
             transition: width 1.5s ease;
         }
 
-        /* تیم */
-        .team {
-            padding: 70px 0;
-            background-color: #000;
-        }
-
-        .team-member {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .team-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 15px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s;
-        }
-
-        .team-member:hover .team-img {
-            transform: scale(1.1);
-            border-color: #f9cb28;
-        }
-
-        .team-social {
-            margin-top: 15px;
-        }
-
-        .team-social a {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border-radius: 50%;
-            margin: 0 4px;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-
-        .team-social a:hover {
-            background: linear-gradient(45deg, #ff4d4d, #f9cb28);
-            color: #000;
-            transform: translateY(-5px);
-        }
-
         /* تماس */
         .contact {
             padding: 70px 0;
@@ -676,32 +627,78 @@
             scroll-behavior: smooth;
         }
 
-        /* بهبودهای اختصاصی برای موبایل */
-        /* خدمات در موبایل */
+        /* استایل‌های جدید برای اسکرول افقی خدمات و نمونه کارها در موبایل */
         @media (max-width: 768px) {
+            /* خدمات به‌صورت نواری */
             .services .row {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
                 gap: 15px;
+                padding-bottom: 15px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
             }
-            
+
+            .services .col-md-6 {
+                flex: 0 0 auto;
+                width: 280px;
+                scroll-snap-align: center;
+            }
+
             .service-card {
-                margin-bottom: 15px;
+                margin-bottom: 0;
                 padding: 20px 15px;
                 border-radius: 12px;
+                min-width: 260px;
             }
-            
+
             .service-icon {
                 font-size: 2rem;
                 margin-bottom: 15px;
             }
-            
+
             .service-card h3 {
                 font-size: 1.2rem;
             }
-            
+
             .service-card p {
                 font-size: 0.9rem;
+            }
+
+            /* نمونه کارها به‌صورت نواری */
+            .portfolio .row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 15px;
+                padding-bottom: 15px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .portfolio .col-md-6 {
+                flex: 0 0 auto;
+                width: 280px;
+                scroll-snap-align: center;
+            }
+
+            .portfolio-item {
+                height: 200px;
+                margin-bottom: 0;
+                min-width: 260px;
+            }
+
+            .portfolio-overlay {
+                padding: 15px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .portfolio-title {
+                font-size: 1.1rem;
             }
         }
 
@@ -710,25 +707,25 @@
             .about-content {
                 flex-direction: column;
             }
-            
+
             .about-img {
                 margin-bottom: 25px;
                 width: 100%;
             }
-            
+
             .about-text {
                 padding: 0;
                 text-align: center;
             }
-            
+
             .about-text h3 {
                 font-size: 1.5rem;
             }
-            
+
             .skills {
                 width: 100%;
             }
-            
+
             .skill-item {
                 margin-bottom: 12px;
             }
@@ -739,44 +736,26 @@
             .contact .row {
                 flex-direction: column-reverse;
             }
-            
+
             .contact-info {
                 margin-top: 30px;
                 text-align: center;
             }
-            
+
             .contact-item {
                 justify-content: center;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
-            
+
             .contact-icon {
                 margin-left: 0;
                 margin-bottom: 10px;
             }
-            
+
             .contact-form {
                 padding: 20px;
-            }
-        }
-
-        /* نمونه کارها در موبایل */
-        @media (max-width: 768px) {
-            .portfolio-item {
-                height: 200px;
-                margin-bottom: 15px;
-            }
-            
-            .portfolio-overlay {
-                padding: 15px;
-                justify-content: center;
-                text-align: center;
-            }
-            
-            .portfolio-title {
-                font-size: 1.1rem;
             }
         }
 
@@ -785,53 +764,54 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .hero p {
                 font-size: 1rem;
             }
-            
+
             .section-title h2 {
                 font-size: 1.8rem;
             }
-            
+
             .btn-main {
                 padding: 10px 25px;
                 font-size: 0.9rem;
             }
-            
+
             .service-card {
-                padding: 20px 15px;
+                min-width: 240px;
+                padding: 15px;
             }
-            
+
             .portfolio-item {
+                min-width: 240px;
                 height: 180px;
             }
-            
+
             .contact-form {
                 padding: 15px;
             }
-            
+
             .contact-icon {
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
             }
-            
+
             .footer-logo {
                 font-size: 1.6rem;
             }
-            
-            /* بهبود فوتر در موبایل کوچک */
+
             .footer-about, .footer-links, .footer-newsletter {
                 text-align: center;
                 margin-bottom: 30px;
             }
-            
+
             .footer-links h3::after {
                 right: 50%;
                 transform: translateX(50%);
             }
-            
+
             .footer-social {
                 justify-content: center;
             }
@@ -842,29 +822,28 @@
             .hero h1 {
                 font-size: 3rem;
             }
-            
+
             .hero p {
                 font-size: 1.2rem;
             }
-            
+
             .service-card {
                 padding: 25px 15px;
             }
-            
+
             .portfolio-item {
                 height: 250px;
             }
-            
-            /* بهبود بخش درباره ما در تبلت */
+
             .about-content {
                 flex-direction: row;
             }
-            
+
             .about-img {
                 width: 45%;
                 margin-left: 5%;
             }
-            
+
             .about-text {
                 width: 50%;
             }
@@ -876,10 +855,27 @@
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        
+
         .mobile-fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* اسکرول روان برای نوارهای افقی */
+        .services .row::-webkit-scrollbar,
+        .portfolio .row::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .services .row::-webkit-scrollbar-thumb,
+        .portfolio .row::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            border-radius: 4px;
+        }
+
+        .services .row::-webkit-scrollbar-track,
+        .portfolio .row::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -898,7 +894,6 @@
                         <li class="nav-item"><a class="nav-link" href="#services">خدمات</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">نمونه کارها</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">درباره ما</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">تیم</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">تماس</a></li>
                     </ul>
                 </div>
@@ -981,7 +976,7 @@
                             <a href="https://amirmmahdi.pythonanywhere.com/" target="_blank" style="color: inherit; text-decoration: none;">
                                 <span class="portfolio-category">توسعه وب</span>
                             </a>
-                            <h3 class="portfolio-title">پیامرسان </h3>
+                            <h3 class="portfolio-title">پیامرسان</h3>
                             <a href="https://aamrmmahdi.pythonanywhere.com/" class="btn-main btn-sm">مشاهده پروژه</a>
                         </div>
                     </div>
@@ -1015,7 +1010,7 @@
                 <div class="about-text mobile-fade-in">
                     <h3>ما تیمی از متخصصان خلاق هستیم</h3>
                     <p>شرکت C در سال 1403 با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. ما با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
-                    <p>تیم ما متشکل از طراحان، توسعه‌دهندگان و متخصصان بازاریابی دیجital است که با اشتیاق و تعهد، پروژه‌های شما را به بهترین شکل ممکن اجرا می‌کنند.</p>
+                    <p>تیم ما متشکل از طراحان، توسعه‌دهندگان و متخصصان بازاریابی دیجیتال است که با اشتیاق و تعهد، پروژه‌های شما را به بهترین شکل ممکن اجرا می‌کنند.</p>
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-name">
@@ -1075,7 +1070,7 @@
                             </div>
                             <div>
                                 <h4>آدرس</h4>
-                                <p>مرکزی , اراک</p>
+                                <p>مرکزی، اراک</p>
                             </div>
                         </div>
                         <div class="contact-item">
