@@ -14,13 +14,12 @@
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/shabnam@4.0.0/index.css" rel="stylesheet"/>
     <style>
         :root {
-            --primary-color: #1E3A8A; /* آبی تیره */
-            --secondary-color: #60A5FA; /* آبی آسمانی */
-            --accent-color: #34D399; /* سبز نعنایی */
-            --bg-dark: #111827; /* پس‌زمینه تیره مدرن */
-            --text-light: #F3F4F6; /* متن روشن با کنتراست بالا */
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            --border-radius: 12px;
+            --primary-color: #1F2937; /* خاکستری تیره */
+            --secondary-color: #3B82F6; /* آبی ملایم */
+            --accent-color: #F59E0B; /* نارنجی ملایم */
+            --text-light: #F9FAFB; /* سفید گرم */
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
             --transition: all 0.3s ease;
             --font-family: 'Shabnam', sans-serif;
         }
@@ -33,7 +32,7 @@
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--primary-color);
             color: var(--text-light);
             overflow-x: hidden;
         }
@@ -45,19 +44,19 @@
             width: 100%;
             z-index: 1000;
             transition: var(--transition);
-            padding: 10px 0;
-            background: rgba(17, 24, 39, 0.95);
-            backdrop-filter: blur(8px);
+            padding: 12px 0;
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         header.scrolled {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
         }
 
         .navbar-brand {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
 
         .navbar-toggler {
@@ -68,8 +67,8 @@
 
         .nav-link {
             color: var(--text-light) !important;
-            font-size: 0.9rem;
-            margin: 0 10px;
+            font-size: 0.95rem;
+            margin: 0 12px;
             position: relative;
             transition: var(--transition);
         }
@@ -82,7 +81,7 @@
             bottom: -2px;
             right: 0;
             background: var(--accent-color);
-            transition: width 0.3s;
+            transition: width 0.3s ease;
         }
 
         .nav-link:hover::after {
@@ -92,13 +91,13 @@
 
         /* هیرو */
         .hero {
-            height: 80vh;
+            height: 85vh;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 60px;
+            padding-top: 70px;
         }
 
         .hero-video {
@@ -109,32 +108,32 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 600px;
-            padding: 0 15px;
+            max-width: 650px;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             color: var(--text-light);
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
         }
 
         .btn-main {
-            padding: 10px 20px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 12px 24px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
             color: #ffffff;
             border-radius: var(--border-radius);
             font-weight: 600;
@@ -142,45 +141,45 @@
             transition: var(--transition);
             box-shadow: var(--shadow);
             border: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .btn-main:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(96, 165, 250, 0.4);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
         }
 
         /* خدمات */
         .services {
-            padding: 60px 0;
-            background-color: var(--bg-dark);
+            padding: 80px 0;
+            background-color: var(--primary-color);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
+            width: 60px;
             height: 3px;
-            background: var(--accent-color);
+            background: var(--secondary-color);
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
             padding: 15px;
             transition: var(--transition);
@@ -189,39 +188,39 @@
         }
 
         .service-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 6px 16px rgba(96, 165, 250, 0.3);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
             border-color: var(--accent-color);
         }
 
         .service-icon {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             color: var(--secondary-color);
         }
 
         .service-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .service-card p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-light);
             opacity: 0.9;
         }
 
         /* نمونه کارها */
         .portfolio {
-            padding: 60px 0;
-            background-color: var(--bg-dark);
+            padding: 80px 0;
+            background-color: var(--primary-color);
         }
 
         .portfolio-item {
             position: relative;
             border-radius: var(--border-radius);
             overflow: hidden;
-            height: 200px;
+            height: 220px;
         }
 
         .portfolio-img {
@@ -237,14 +236,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(17, 24, 39, 0.9), transparent);
+            background: linear-gradient(to top, rgba(31, 41, 55, 0.9), transparent);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.4s ease;
-            padding: 10px;
+            padding: 12px;
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -257,29 +256,29 @@
 
         .portfolio-category {
             color: var(--accent-color);
-            font-size: 0.8rem;
-            margin-bottom: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
         }
 
         .portfolio-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-light);
         }
 
         /* درباره ما */
         .about {
-            padding: 60px 0;
-            background-color: var(--bg-dark);
+            padding: 80px 0;
+            background-color: var(--primary-color);
         }
 
         .about-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            background: rgba(255, 255, 255, 0.05);
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
-            padding: 20px;
+            padding: 25px;
             box-shadow: var(--shadow);
         }
 
@@ -287,156 +286,158 @@
             width: 100%;
             height: auto;
             border-radius: var(--border-radius);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
         }
 
         .about-content h2 {
-            font-size: 1.4rem;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 12px;
             text-align: right;
         }
 
         .about-content p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
             text-align: right;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .features-list {
             display: flex;
             overflow-x: auto;
-            gap: 12px;
-            padding: 10px;
+            gap: 15px;
+            padding: 12px;
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
 
         .feature-item {
-            flex: 0 0 150px;
-            background: rgba(255, 255, 255, 0.05);
+            flex: 0 0 160px;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
-            padding: 12px;
+            padding: 15px;
             text-align: center;
             scroll-snap-align: start;
             transition: var(--transition);
         }
 
         .feature-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(96, 165, 250, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
         }
 
         .feature-icon {
             background: var(--secondary-color);
             color: #ffffff;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
-            font-size: 1.2rem;
+            margin: 0 auto 10px;
+            font-size: 1.3rem;
         }
 
         .feature-text h3 {
-            font-size: 0.95rem;
-            margin-bottom: 5px;
+            font-size: 1rem;
+            margin-bottom: 6px;
             color: var(--text-light);
         }
 
         .feature-text p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-light);
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         /* تماس */
         .contact {
-            padding: 60px 0;
-            background-color: var(--bg-dark);
+            padding: 80px 0;
+            background-color: var(--primary-color);
         }
 
         .contact-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            background: rgba(255, 255, 255, 0.05);
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
-            padding: 20px;
+            padding: 25px;
             box-shadow: var(--shadow);
         }
 
         .contact-info h2, .contact-form h2 {
-            font-size: 1.4rem;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
             text-align: right;
         }
 
         .info-list {
             display: flex;
             overflow-x: auto;
-            gap: 12px;
-            padding: 10px;
+            gap: 15px;
+            padding: 12px;
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
 
         .info-item {
-            flex: 0 0 150px;
-            background: rgba(255, 255, 255, 0.05);
+            flex: 0 0 160px;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
-            padding: 12px;
+            padding: 15px;
             text-align: center;
             scroll-snap-align: start;
             transition: var(--transition);
         }
 
         .info-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(96, 165, 250, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
         }
 
         .info-icon {
             background: var(--secondary-color);
             color: #ffffff;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
-            font-size: 1.2rem;
+            margin: 0 auto 10px;
+            font-size: 1.3rem;
         }
 
         .info-text h3 {
-            font-size: 0.95rem;
-            margin-bottom: 5px;
+            font-size: 1rem;
+            margin-bottom: 6px;
             color: var(--text-light);
         }
 
         .info-text p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-light);
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 12px;
+            gap: 15px;
+            margin-top: 15px;
         }
 
         .social-links a {
-            width: 38px;
-            height: 38px;
-            background: rgba(255, 255, 255, 0.05);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -455,24 +456,24 @@
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             display: block;
             color: var(--text-light);
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: var(--border-radius);
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-light);
             transition: border-color 0.3s ease, transform 0.3s ease;
         }
@@ -480,63 +481,63 @@
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--accent-color);
             transform: scale(1.02);
-            box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2);
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
             outline: none;
         }
 
         .form-group textarea {
-            height: 120px;
+            height: 130px;
             border-radius: var(--border-radius);
         }
 
         .contact-form button {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
             color: #ffffff;
             border: none;
             border-radius: var(--border-radius);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
         }
 
         .contact-form button:hover {
-            background: linear-gradient(to right, #2563EB, #93C5FD);
+            background: linear-gradient(to right, #2563EB, #FBBF24);
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(96, 165, 250, 0.3);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
         }
 
         /* فوتر */
         footer {
-            background-color: var(--bg-dark);
-            padding: 30px 0 20px;
+            background-color: var(--primary-color);
+            padding: 40px 0 20px;
         }
 
         .footer-logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
 
         .footer-about p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-light);
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .footer-social {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 12px;
+            margin-top: 15px;
         }
 
         .footer-social a {
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.05);
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
@@ -551,8 +552,8 @@
         }
 
         .footer-links h3 {
-            font-size: 0.95rem;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 12px;
             color: var(--text-light);
         }
 
@@ -561,14 +562,14 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             list-style: none;
         }
 
         .footer-links ul li a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
@@ -581,73 +582,73 @@
         }
 
         .footer-newsletter h3 {
-            font-size: 0.95rem;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 12px;
             color: var(--text-light);
         }
 
         .footer-newsletter p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-light);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .newsletter-form .input-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
-            max-width: 320px;
+            max-width: 340px;
             margin: 0 auto;
         }
 
         .newsletter-form .form-control {
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: var(--border-radius);
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-light);
             transition: var(--transition);
         }
 
         .newsletter-form .form-control:focus {
             border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2);
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
             outline: none;
         }
 
         .newsletter-form .btn-main {
-            padding: 10px 20px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            padding: 12px 24px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
             color: #ffffff;
             border-radius: var(--border-radius);
             font-weight: 600;
             border: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
         .newsletter-form .btn-main:hover {
-            background: linear-gradient(to right, #2563EB, #93C5FD);
+            background: linear-gradient(to right, #2563EB, #FBBF24);
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(96, 165, 250, 0.3);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
         }
 
         .copyright {
-            margin-top: 20px;
-            padding-top: 10px;
+            margin-top: 25px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-light);
         }
 
         /* انیمیشن‌ها */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .fade-in.visible {
@@ -658,20 +659,20 @@
         /* موبایل */
         @media (max-width: 768px) {
             .hero {
-                height: 60vh;
+                height: 65vh;
             }
 
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
             .hero p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
 
             .btn-main {
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
 
             .services .row,
@@ -680,8 +681,8 @@
                 flex-direction: row;
                 flex-wrap: nowrap;
                 overflow-x: auto;
-                gap: 10px;
-                padding-bottom: 10px;
+                gap: 12px;
+                padding: 12px 0;
                 scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;
                 -webkit-overflow-scrolling: touch;
@@ -689,50 +690,52 @@
 
             .services .col-md-6,
             .portfolio .col-md-6 {
-                flex: 0 0 160px;
+                flex: 0 0 150px;
                 scroll-snap-align: center;
             }
 
             .service-card {
-                min-width: 150px;
-                padding: 10px;
+                min-width: 140px;
+                padding: 12px;
             }
 
             .portfolio-item {
-                min-width: 150px;
-                height: 160px;
+                min-width: 140px;
+                height: 150px;
             }
 
             .portfolio-overlay {
-                padding: 8px;
+                padding: 10px;
             }
 
             .portfolio-title {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
 
             .about-section, .contact-section {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
+                padding: 20px;
             }
 
             .about-img {
-                max-width: 300px;
+                max-width: 280px;
                 margin: 0 auto;
             }
 
             .about-content h2, .contact-info h2, .contact-form h2 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 text-align: center;
             }
 
             .about-content p {
+                font-size: 0.95rem;
                 text-align: center;
             }
 
             .features-list, .info-list {
-                gap: 10px;
-                padding: 8px;
+                gap: 12px;
+                padding: 10px;
             }
 
             .feature-item, .info-item {
@@ -741,6 +744,13 @@
 
             .contact-form {
                 padding: 15px;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            .form-group input, .form-group textarea {
+                font-size: 0.95rem;
+                padding: 10px;
             }
 
             .social-links {
@@ -750,7 +760,7 @@
             .newsletter-form .input-group {
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                gap: 12px;
             }
 
             .newsletter-form .form-control {
@@ -764,24 +774,24 @@
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             .section-title h2 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
             .service-card {
-                min-width: 140px;
+                min-width: 130px;
             }
 
             .portfolio-item {
-                min-width: 140px;
-                height: 140px;
+                min-width: 130px;
+                height: 130px;
             }
 
             .footer-logo {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
 
             .footer-about, .footer-links, .footer-newsletter {
@@ -793,7 +803,7 @@
             }
 
             .feature-item, .info-item {
-                flex: 0 0 120px;
+                flex: 0 0 130px;
             }
 
             .newsletter-form .form-control {
@@ -802,20 +812,20 @@
 
             .newsletter-form .btn-main {
                 max-width: 280px;
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
 
         /* تبلت */
         @media (min-width: 768px) and (max-width: 992px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
 
             .about-section, .contact-section {
                 grid-template-columns: 1fr 1fr;
-                gap: 15px;
+                gap: 20px;
             }
 
             .about-img {
@@ -875,28 +885,28 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card" data-aos="slide-up" data-aos-delay="100">
                         <i class="fas fa-code service-icon"></i>
                         <h3>توسعه وب</h3>
                         <p>طراحی و توسعه وبسایت‌های مدرن و واکنش‌گرا با آخرین فناوری‌ها</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card" data-aos="slide-up" data-aos-delay="200">
                         <i class="fas fa-mobile-alt service-icon"></i>
                         <h3>اپلیکیشن موبایل</h3>
                         <p>توسعه اپلیکیشن‌های iOS و Android با UX حرفه‌ای</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card" data-aos="slide-up" data-aos-delay="300">
                         <i class="fas fa-film service-icon"></i>
                         <h3>موشن گرافیک</h3>
                         <p>خلق انیمیشن‌های جذاب و حرفه‌ای برای برند شما</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card" data-aos="slide-up" data-aos-delay="400">
                         <i class="fas fa-vr-cardboard service-icon"></i>
                         <h3>واقعیت مجازی</h3>
                         <p>تجربه‌های غوطه‌ور VR برای آموزش، سرگرمی و بازاریابی</p>
@@ -1151,8 +1161,8 @@
         $('a[href*="#"]').on('click', function(e) {
             e.preventDefault();
             $('html, body').animate({
-                scrollTop: $($(this).attr('href')).offset().top - 60
-            }, 500, 'easeInOutCubic');
+                scrollTop: $($(this).attr('href')).offset().top - 70
+            }, 600, 'easeInOutCubic');
         });
 
         // انیمیشن‌های اولیه
@@ -1161,7 +1171,7 @@
                 var position = $(this).offset().top;
                 var scroll = $(window).scrollTop();
                 var windowHeight = $(window).height();
-                if (scroll + windowHeight > position + 50) {
+                if (scroll + windowHeight > position + 60) {
                     $(this).addClass('visible');
                 }
             });
