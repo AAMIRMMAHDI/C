@@ -8,17 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
-    <!-- Google Fonts (Vazir) -->
+    <!-- Vazir Font -->
     <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #e94560; /* قرمز ملایم */
             --secondary-color: #ffd700; /* زرد طلایی */
-            --bg-dark: #0a0a0a; /* پس‌زمینه تیره */
-            --text-light: #f0f0f0; /* متن روشن */
-            --accent-color: #1e90ff; /* رنگ آبی */
-            --shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-            --border-radius: 12px;
+            --bg-dark: #121212; /* پس‌زمینه تیره مشابه شاپ */
+            --text-light: #e0e0e0; /* متن روشن */
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --border-radius: 16px;
             --transition: all 0.3s ease;
             --font-family: 'Vazir', sans-serif;
         }
@@ -43,18 +42,17 @@
             width: 100%;
             z-index: 1000;
             transition: var(--transition);
-            padding: 10px 0;
+            padding: 8px 0;
+            background: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(6px);
         }
 
         header.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 8px 0;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-brand {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
@@ -65,13 +63,13 @@
         .navbar-toggler {
             border: none;
             color: var(--text-light);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .nav-link {
             color: var(--text-light) !important;
-            font-size: 0.9rem;
-            margin: 0 10px;
+            font-size: 0.85rem;
+            margin: 0 8px;
             position: relative;
             transition: var(--transition);
         }
@@ -81,7 +79,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -3px;
+            bottom: -2px;
             right: 0;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             transition: width 0.3s;
@@ -94,7 +92,7 @@
 
         /* هیرو */
         .hero {
-            height: 80vh;
+            height: 70vh;
             position: relative;
             display: flex;
             align-items: center;
@@ -111,61 +109,61 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 600px;
-            padding: 0 15px;
+            max-width: 550px;
+            padding: 0 12px;
         }
 
         .hero h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--text-light);
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
         }
 
         .hero p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            opacity: 0.85;
         }
 
         .btn-main {
-            padding: 8px 20px;
+            padding: 8px 18px;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: var(--bg-dark);
-            border-radius: 25px;
+            border-radius: 20px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
             box-shadow: var(--shadow);
             border: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .btn-main:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(233, 69, 96, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(233, 69, 96, 0.4);
         }
 
         /* خدمات */
         .services {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: var(--bg-dark);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
@@ -176,32 +174,32 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
+            width: 40px;
+            height: 2px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            padding: 15px;
+            padding: 12px;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(233, 69, 96, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(233, 69, 96, 0.3);
             border-color: var(--primary-color);
         }
 
         .service-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
@@ -209,18 +207,18 @@
         }
 
         .service-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1rem;
+            margin-bottom: 6px;
         }
 
         .service-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
         }
 
         /* نمونه کارها */
         .portfolio {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: var(--bg-dark);
         }
 
@@ -228,7 +226,7 @@
             position: relative;
             border-radius: var(--border-radius);
             overflow: hidden;
-            height: 200px;
+            height: 180px;
         }
 
         .portfolio-img {
@@ -244,14 +242,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+            background: linear-gradient(to top, rgba(18, 18, 18, 0.9), transparent);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s;
-            padding: 10px;
+            padding: 8px;
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -264,25 +262,25 @@
 
         .portfolio-category {
             color: var(--secondary-color);
-            font-size: 0.8rem;
-            margin-bottom: 5px;
+            font-size: 0.75rem;
+            margin-bottom: 4px;
         }
 
         .portfolio-title {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
         /* درباره ما */
         .about {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: var(--bg-dark);
         }
 
         .about-section {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            padding: 20px;
+            padding: 16px;
             box-shadow: var(--shadow);
         }
 
@@ -290,138 +288,138 @@
             width: 100%;
             height: auto;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
 
         .about-content h2 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
         }
 
         .about-content p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.5;
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .features-list {
             display: flex;
             overflow-x: auto;
-            gap: 12px;
-            padding: 10px;
+            gap: 10px;
+            padding: 8px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
 
         .feature-item {
-            flex: 0 0 160px;
-            background: rgba(255, 255, 255, 0.12);
+            flex: 0 0 140px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             scroll-snap-align: start;
             transition: var(--transition);
         }
 
         .feature-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(233, 69, 96, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(233, 69, 96, 0.2);
         }
 
         .feature-icon {
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             color: var(--bg-dark);
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
-            font-size: 1.3rem;
+            margin: 0 auto 6px;
+            font-size: 1.2rem;
         }
 
         .feature-text h3 {
-            font-size: 1rem;
-            margin-bottom: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
             color: var(--text-light);
         }
 
         .feature-text p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-light);
             opacity: 0.8;
         }
 
         /* تماس */
         .contact {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: var(--bg-dark);
         }
 
         .contact-section {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            padding: 20px;
+            padding: 16px;
             box-shadow: var(--shadow);
         }
 
         .contact-info h2, .contact-form h2 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary-color);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-align: center;
         }
 
         .info-list {
             display: flex;
             overflow-x: auto;
-            gap: 12px;
-            padding: 10px;
+            gap: 10px;
+            padding: 8px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
 
         .info-item {
-            flex: 0 0 160px;
-            background: rgba(255, 255, 255, 0.12);
+            flex: 0 0 140px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             scroll-snap-align: start;
             transition: var(--transition);
         }
 
         .info-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(233, 69, 96, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(233, 69, 96, 0.2);
         }
 
         .info-icon {
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             color: var(--bg-dark);
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
-            font-size: 1.3rem;
+            margin: 0 auto 6px;
+            font-size: 1.2rem;
         }
 
         .info-text h3 {
-            font-size: 1rem;
-            margin-bottom: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
             color: var(--text-light);
         }
 
         .info-text p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-light);
             opacity: 0.8;
         }
@@ -429,14 +427,14 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 12px;
+            gap: 10px;
+            margin-top: 10px;
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.12);
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -451,51 +449,51 @@
         }
 
         .contact-form {
-            margin-top: 20px;
+            margin-top: 16px;
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .form-group label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             display: block;
             color: var(--text-light);
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.12);
+            padding: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.1);
             color: var(--text-light);
             transition: var(--transition);
         }
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+            box-shadow: 0 0 0 2px rgba(233, 69, 96, 0.2);
             outline: none;
         }
 
         .form-group textarea {
-            height: 120px;
+            height: 100px;
             border-radius: var(--border-radius);
         }
 
         .contact-form button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             color: var(--bg-dark);
             border: none;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -509,11 +507,11 @@
         /* فوتر */
         footer {
             background-color: var(--bg-dark);
-            padding: 30px 0 20px;
+            padding: 25px 0 15px;
         }
 
         .footer-logo {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
@@ -522,23 +520,23 @@
         }
 
         .footer-about p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .footer-social {
             display: flex;
             justify-content: center;
             gap: 8px;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .footer-social a {
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
-            background: rgba(255, 255, 255, 0.12);
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background: rgba(255, 255, 255, 0.1);
             color: var(--text-light);
             border-radius: 50%;
             text-align: center;
@@ -551,8 +549,8 @@
         }
 
         .footer-links h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
             color: var(--text-light);
         }
 
@@ -561,14 +559,14 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             list-style: none;
         }
 
         .footer-links ul li a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: var(--transition);
         }
 
@@ -581,76 +579,75 @@
         }
 
         .footer-newsletter h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
             color: var(--text-light);
         }
 
         .footer-newsletter p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .newsletter-form .input-group {
             display: flex;
+            flex-direction: column;
             gap: 8px;
             justify-content: center;
-            flex-wrap: wrap;
-            max-width: 400px;
+            max-width: 300px;
             margin: 0 auto;
         }
 
         .newsletter-form .form-control {
-            padding: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.12);
+            padding: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.1);
             color: var(--text-light);
-            flex: 1;
-            min-width: 160px;
+            width: 100%;
             transition: var(--transition);
         }
 
         .newsletter-form .form-control:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+            box-shadow: 0 0 0 2px rgba(233, 69, 96, 0.2);
             outline: none;
         }
 
         .newsletter-form .btn-main {
-            padding: 10px 20px;
+            padding: 8px 16px;
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             color: var(--bg-dark);
-            border-radius: 20px;
+            border-radius: 16px;
             font-weight: 600;
             border: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: var(--transition);
-            min-width: 100px;
+            width: 100%;
         }
 
         .newsletter-form .btn-main:hover {
             background: linear-gradient(to right, #ff5252, #ffb700);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(233, 69, 96, 0.2);
+            box-shadow: 0 5px 10px rgba(233, 69, 96, 0.2);
         }
 
         .copyright {
-            margin-top: 20px;
-            padding-top: 10px;
+            margin-top: 15px;
+            padding-top: 8px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-light);
         }
 
         /* انیمیشن‌ها */
         .fade-in {
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         .fade-in.visible {
@@ -661,20 +658,20 @@
         /* موبایل */
         @media (max-width: 768px) {
             .hero {
-                height: 60vh;
+                height: 50vh;
             }
 
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
 
             .hero p {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .btn-main {
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                padding: 7px 14px;
+                font-size: 0.8rem;
             }
 
             .services .row,
@@ -692,36 +689,36 @@
             .services .col-md-6,
             .portfolio .col-md-6 {
                 flex: 0 0 auto;
-                width: 220px;
+                width: 200px;
                 scroll-snap-align: center;
             }
 
             .service-card {
-                min-width: 200px;
-                padding: 12px;
+                min-width: 180px;
+                padding: 10px;
             }
 
             .portfolio-item {
-                min-width: 200px;
-                height: 160px;
+                min-width: 180px;
+                height: 140px;
             }
 
             .portfolio-overlay {
-                padding: 8px;
+                padding: 6px;
             }
 
             .portfolio-title {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .about-section, .contact-section {
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
+                gap: 12px;
             }
 
             .about-img {
-                max-width: 280px;
+                max-width: 260px;
                 margin: 0 auto;
             }
 
@@ -734,16 +731,16 @@
             }
 
             .features-list, .info-list {
-                gap: 10px;
-                padding: 8px;
+                gap: 8px;
+                padding: 6px;
             }
 
             .feature-item, .info-item {
-                flex: 0 0 140px;
+                flex: 0 0 120px;
             }
 
             .contact-form {
-                padding: 12px;
+                padding: 10px;
             }
 
             .social-links {
@@ -753,36 +750,34 @@
             .newsletter-form .input-group {
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                gap: 8px;
             }
 
             .newsletter-form .form-control {
-                width: 100%;
-                max-width: 280px;
+                max-width: 260px;
             }
 
             .newsletter-form .btn-main {
-                width: 100%;
-                max-width: 280px;
+                max-width: 260px;
             }
         }
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
             .section-title h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
 
             .service-card {
-                min-width: 180px;
+                min-width: 160px;
             }
 
             .portfolio-item {
-                min-width: 180px;
-                height: 140px;
+                min-width: 160px;
+                height: 120px;
             }
 
             .footer-logo {
@@ -798,30 +793,30 @@
             }
 
             .feature-item, .info-item {
-                flex: 0 0 120px;
+                flex: 0 0 110px;
             }
 
             .newsletter-form .form-control {
-                min-width: 140px;
+                max-width: 240px;
             }
 
             .newsletter-form .btn-main {
-                min-width: 140px;
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                max-width: 240px;
+                padding: 7px 14px;
+                font-size: 0.8rem;
             }
         }
 
         /* تبلت */
         @media (min-width: 768px) and (max-width: 992px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .about-section, .contact-section {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                gap: 16px;
             }
 
             .about-img {
@@ -1112,7 +1107,7 @@
                         <h3>خبرنامه</h3>
                         <p>برای دریافت آخرین اخبار و پیشنهادهای ویژه، ایمیل خود را وارد کنید.</p>
                         <form class="newsletter-form" method="post" action="#">
-                            <div class="input-group mt-4">
+                            <div class="input-group mt-3">
                                 <input type="email" class="form-control" placeholder="ایمیل شما" required>
                                 <button class="btn-main" type="submit">عضویت</button>
                             </div>
@@ -1132,7 +1127,7 @@
     <script>
         // اسکرول هدر
         $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
+            if ($(this).scrollTop() > 80) {
                 $('#header').addClass('scrolled');
             } else {
                 $('#header').removeClass('scrolled');
@@ -1145,7 +1140,7 @@
                 var position = $(this).offset().top;
                 var scroll = $(window).scrollTop();
                 var windowHeight = $(window).height();
-                if (scroll + windowHeight > position + 50) {
+                if (scroll + windowHeight > position + 40) {
                     $(this).addClass('visible');
                 }
             });
@@ -1160,8 +1155,8 @@
         $('a[href*="#"]').on('click', function(e) {
             e.preventDefault();
             $('html, body').animate({
-                scrollTop: $($(this).attr('href')).offset().top - 50
-            }, 500, 'linear');
+                scrollTop: $($(this).attr('href')).offset().top - 40
+            }, 400, 'linear');
         });
 
         // انیمیشن‌های اولیه
@@ -1171,11 +1166,11 @@
                     var position = $(this).offset().top;
                     var scroll = $(window).scrollTop();
                     var windowHeight = $(window).height();
-                    if (scroll + windowHeight > position + 50) {
+                    if (scroll + windowHeight > position + 40) {
                         $(this).addClass('visible');
                     }
                 });
-            }, 200);
+            }, 150);
         });
     </script>
 </body>
