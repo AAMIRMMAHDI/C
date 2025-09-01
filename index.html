@@ -918,6 +918,30 @@
             box-shadow: 0 10px 20px rgba(236, 72, 153, 0.5);
         }
 
+        /* استایل‌های جدید برای چیدمان نواری در موبایل */
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 10px 0 30px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .service-scroll-item,
+        .portfolio-scroll-item,
+        .feature-scroll-item,
+        .info-scroll-item {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            width: 85vw;
+        }
+
         /* موبایل */
         @media (max-width: 992px) {
             .hero h1 {
@@ -954,16 +978,110 @@
                 font-size: 2rem;
             }
             
+            /* چیدمان نواری برای خدمات در موبایل */
+            .services .row {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding: 10px 0 30px;
+                margin: 0 -15px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            
+            .services .row::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .services .col-lg-3 {
+                flex: 0 0 auto;
+                width: 85vw;
+                scroll-snap-align: start;
+            }
+            
             .service-card {
-                margin-bottom: 30px;
+                margin-bottom: 0;
+                height: 100%;
+            }
+            
+            /* چیدمان نواری برای نمونه کارها در موبایل */
+            .portfolio .row {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding: 10px 0 30px;
+                margin: 0 -15px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            
+            .portfolio .row::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .portfolio .col-lg-4 {
+                flex: 0 0 auto;
+                width: 85vw;
+                scroll-snap-align: start;
+            }
+            
+            .portfolio-item {
+                margin-bottom: 0;
+                height: 250px;
+            }
+            
+            /* چیدمان نواری برای ویژگی‌ها در موبایل */
+            .features-list {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding: 10px 0 30px;
+                margin: 0 -15px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            
+            .features-list::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .feature-item {
+                flex: 0 0 auto;
+                width: 70vw;
+                scroll-snap-align: start;
+            }
+            
+            /* چیدمان نواری برای اطلاعات تماس در موبایل */
+            .info-list {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding: 10px 0 30px;
+                margin: 0 -15px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            
+            .info-list::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .info-item {
+                flex: 0 0 auto;
+                width: 60vw;
+                scroll-snap-align: start;
             }
             
             .about-section, .contact-section {
                 padding: 25px;
-            }
-            
-            .features-list, .info-list {
-                grid-template-columns: 1fr;
             }
             
             .footer-links, .footer-newsletter {
@@ -1010,6 +1128,23 @@
             
             .footer-logo {
                 font-size: 1.8rem;
+            }
+            
+            /* تنظیمات عرض برای آیتم‌های نواری در موبایل‌های کوچک‌تر */
+            .services .col-lg-3 {
+                width: 80vw;
+            }
+            
+            .portfolio .col-lg-4 {
+                width: 80vw;
+            }
+            
+            .feature-item {
+                width: 65vw;
+            }
+            
+            .info-item {
+                width: 55vw;
             }
         }
     </style>
@@ -1147,7 +1282,7 @@
                     <div class="col-lg-6">
                         <div class="about-content fade-in delay-1">
                             <h2>داستان ما</h2>
-                            <p>شرکت C در سال ۱۴۰۳ با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. ما با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
+                            <p>شرکت C در سال ۱۴۰۳ با هدف ارائه راه‌حل‌های دیجیتال خلاقانه تأسیس شد. мы با ترکیب هنر و فناوری، به کسب‌وکارها کمک می‌کنیم تا در دنیای دیجیتال بدرخشند.</p>
                             <p>تیم ما متشکل از طراحان، توسعه‌دهندگان و متخصصان بازاریابی دیجیتال است که با اشتیاق و تعهد، پروژه‌های شما را به بهترین شکل ممکن اجرا می‌کنند.</p>
                             <div class="features-list">
                                 <div class="feature-item">
@@ -1403,3 +1538,7 @@
     </script>
 </body>
 </html>
+
+
+
+
